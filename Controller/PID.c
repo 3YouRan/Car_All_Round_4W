@@ -7,12 +7,16 @@
 PID pid_position;
 PID pid_speed;
 PID pid_current;
+
+PID PID_POINT;
+PID PID_Angle_POS;
+PID PID_Angle_SPD;
 /**********************************
  * 功能：PID结构体参数初始化
  * 输入：无
  * 返回：无
  * *******************************/
-void PID_Init(PID *pid_speed,PID *pid_position)//PID参数初始化
+void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS,PID *PID_Angle_SPD)//PID参数初始化
 {
     pid_speed->err = 0;
     pid_speed->integral = 0;
@@ -35,6 +39,44 @@ void PID_Init(PID *pid_speed,PID *pid_position)//PID参数初始化
     pid_position->ki = 0;
     pid_position->kd = 5;
     pid_position->deadZone = 0.001;
+
+    //PID_POINT
+    PID_POINT->err = 0;
+    PID_POINT->integral = 0;
+    PID_POINT->maxIntegral = 600;
+    PID_POINT->maxOutput = 600;
+    PID_POINT->lastErr = 0;
+    PID_POINT->output = 0;
+    PID_POINT->kp = 50.763;
+    PID_POINT->ki = 0;
+    PID_POINT->kd = 5;
+    PID_POINT->deadZone = 0.001;
+
+    //PID_Angle_POS
+    PID_Angle_POS->err = 0;
+    PID_Angle_POS->integral = 0;
+    PID_Angle_POS->maxIntegral = 600;
+    PID_Angle_POS->maxOutput = 600;
+    PID_Angle_POS->lastErr = 0;
+    PID_Angle_POS->output = 0;
+    PID_Angle_POS->kp = 50.763;
+    PID_Angle_POS->ki = 0;
+    PID_Angle_POS->kd = 5;
+    PID_Angle_POS->deadZone = 0.001;
+
+
+    //PID_Angle_SPD
+    PID_Angle_SPD->err = 0;
+    PID_Angle_SPD->integral = 0;
+    PID_Angle_SPD->maxIntegral = 600;
+    PID_Angle_SPD->maxOutput = 600;
+    PID_Angle_SPD->lastErr = 0;
+    PID_Angle_SPD->output = 0;
+    PID_Angle_SPD->kp = 50.763;
+    PID_Angle_SPD->ki = 0;
+    PID_Angle_SPD->kd = 5;
+    PID_Angle_SPD->deadZone = 0.001;
+
 
 }
 

@@ -1,4 +1,4 @@
-# Install script for directory: D:/STM32/proj/RC_All_Round
+# Install script for directory: D:/Car_All_Round_4W
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/STM32/proj/RC_All_Round/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Car_All_Round_4W/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

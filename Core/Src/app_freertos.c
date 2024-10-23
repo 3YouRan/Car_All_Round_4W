@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "all.h"
+#include "data_fusion_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,6 +58,27 @@ const osThreadAttr_t defaultTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
   .stack_size = 128 * 4
 };
+/* Definitions for DataFusionTask */
+osThreadId_t DataFusionTaskHandle;
+const osThreadAttr_t DataFusionTask_attributes = {
+  .name = "DataFusionTask",
+  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 128 * 4
+};
+/* Definitions for ROBOMOVTASK */
+osThreadId_t ROBOMOVTASKHandle;
+const osThreadAttr_t ROBOMOVTASK_attributes = {
+  .name = "ROBOMOVTASK",
+  .priority = (osPriority_t) osPriorityHigh,
+  .stack_size = 128 * 4
+};
+/* Definitions for SETTARGETTASK */
+osThreadId_t SETTARGETTASKHandle;
+const osThreadAttr_t SETTARGETTASK_attributes = {
+  .name = "SETTARGETTASK",
+  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 128 * 4
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -64,6 +86,9 @@ const osThreadAttr_t defaultTask_attributes = {
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
+void data_fusion(void *argument);
+void robo_mov(void *argument);
+void set_target(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -96,7 +121,16 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-//  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+  /* creation of DataFusionTask */
+  DataFusionTaskHandle = osThreadNew(data_fusion, NULL, &DataFusionTask_attributes);
+
+  /* creation of ROBOMOVTASK */
+  ROBOMOVTASKHandle = osThreadNew(robo_mov, NULL, &ROBOMOVTASK_attributes);
+
+  /* creation of SETTARGETTASK */
+  SETTARGETTASKHandle = osThreadNew(set_target, NULL, &SETTARGETTASK_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -129,6 +163,75 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
+}
+
+/* USER CODE BEGIN Header_data_fusion */
+/**
+* @brief Function implementing the DataFusionTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_data_fusion */
+void data_fusion(void *argument)
+{
+  /* USER CODE BEGIN data_fusion */
+  portTickType CurrentTime1;
+
+  /* Infinite loop */
+
+  for(;;)
+  {
+    CurrentTime1=xTaskGetTickCount();
+
+    data_fusion();
+
+    vTaskDelayUntil(&CurrentTime1,5);
+
+  }
+  /* USER CODE END data_fusion */
+}
+
+/* USER CODE BEGIN Header_robo_mov */
+/**
+* @brief Function implementing the ROBOMOVTASK thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_robo_mov */
+void robo_mov(void *argument)
+{
+  /* USER CODE BEGIN robo_mov */
+  portTickType CurrentTime2;
+
+  /* Infinite loop */
+  for(;;)
+  {
+    CurrentTime2=xTaskGetTickCount();
+
+    RunPoint_straight();
+
+    vTaskDelayUntil(&CurrentTime2,5);
+
+  }
+  /* USER CODE END robo_mov */
+}
+
+/* USER CODE BEGIN Header_set_target */
+/**
+* @brief Function implementing the SETTARGETTASK thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_set_target */
+void set_target(void *argument)
+{
+  /* USER CODE BEGIN set_target */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END set_target */
 }
 
 /* Private application code --------------------------------------------------*/
