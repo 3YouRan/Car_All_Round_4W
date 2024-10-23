@@ -16,13 +16,13 @@ void PID_Init(PID *pid_speed,PID *pid_position)//PID参数初始化
 {
     pid_speed->err = 0;
     pid_speed->integral = 0;
-    pid_speed->maxIntegral = 10000;
+    pid_speed->maxIntegral = 1000;
     pid_speed->maxOutput=16000;
     pid_speed->lastErr = 0;
     pid_speed->output = 0;
-    pid_speed->kp = 76.72;
-    pid_speed->ki = 0.0;
-    pid_speed->kd = 10;
+    pid_speed->kp = 35.5;
+    pid_speed->ki = 0.05;
+    pid_speed->kd = 28.81;
     pid_speed->deadZone = 0.05;
 
     pid_position->err = 0;
@@ -97,6 +97,7 @@ float FW_PID_Realize(PID* pid, float target, float feedback)//一次PID计算
 
     pid->lastErr = pid->err;
 
+    if(target == 0) pid->output = 0; // 刹车时直接输出0
     return pid->output;
 }
 /*

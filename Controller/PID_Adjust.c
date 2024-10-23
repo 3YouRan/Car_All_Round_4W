@@ -2,17 +2,28 @@
 
 #include <stdlib.h>
 #include "all.h"
-
+//电机1位置和速度
 float Target_Speed_1=0;
 float Target_Speed_actual_1;
 float Target_Position_1;
 float Target_Position_last_1;
+//电机2位置和速度
 float Target_Speed_2;
 float Target_Speed_actual_2;
 float Target_Position_last_2;
 float Target_Position_2;
-float Target_Current;
-float MIN_Spe_Increment = 2;
+//电机3位置和速度
+float Target_Speed_3;
+float Target_Speed_actual_3;
+float Target_Position_last_3;
+float Target_Position_3;
+//电机4位置和速度
+float Target_Speed_4;
+float Target_Speed_actual_4;
+float Target_Position_last_4;
+float Target_Position_4;
+//速度爬坡增量
+float MIN_Spe_Increment = 1;
 
 /*
  * 解析出DataBuff中的数据

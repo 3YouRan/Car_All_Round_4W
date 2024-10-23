@@ -23,35 +23,73 @@
 
 #include "PID_Adjust.h"
 
-extern float Target_Speed_1;//电机1目标速度
-extern float Target_Speed_2;//电机2目标速度
-extern float Target_Speed_actual_1;//电机1实际目标速度
-extern float Target_Speed_actual_2;//电机2实际目标速度
-extern float MIN_Spe_Increment;//最小速度增量
-extern float Target_Position_1;//电机1目标位置
-extern float Target_Position_last_1;//电机1上一次目标位置
-extern float Target_Position_2;//电机2目标位置
-extern float Target_Position_last_2;//电机2上一次目标位置
-extern float Target_Current;
+#include "FreeRTOS.h"
+
+#include "task.h"
+
+#include "uart_task.h"
+
+#include "DJI_driver.h"
+
+#include <stdbool.h>
+
+#include "semphr.h"
+
+#include "pid_task.h"
+
+#include "tim.h"
+
+#include "event_groups.h"
+
+#include "math.h"
+//电机1位置和速度
+extern float Target_Speed_1;
+extern float Target_Speed_actual_1;
+extern float Target_Position_1;
+extern float Target_Position_last_1;
+//电机2位置和速度
+extern float Target_Speed_2;
+extern float Target_Speed_actual_2;
+extern float Target_Position_last_2;
+extern float Target_Position_2;
+//电机3位置和速度
+extern float Target_Speed_3;
+extern float Target_Speed_actual_3;
+extern float Target_Position_last_3;
+extern float Target_Position_3;
+//电机4位置和速度
+extern float Target_Speed_4;
+extern float Target_Speed_actual_4;
+extern float Target_Position_last_4;
+extern float Target_Position_4;
+extern float MIN_Spe_Increment;
+
+
 extern PID pid_position;//位置PID
 extern PID pid_speed;//速度PID
-extern PID pid_current;
 
 
 extern uint8_t RxBuffer[1];//接收缓冲区
 extern uint16_t RxLine;//接收行数
 extern uint8_t DataBuff[200];//数据缓存区
 
-extern int16_t x;//机械臂端子x坐标
-extern int16_t y;//机械臂端子y坐标
-extern float theta;//电机1的目标theta角度
-extern float theta_last;
-extern int16_t theta_2_last;
-extern int16_t theta_2_last_last;
+extern TaskHandle_t g_Uart_Tx_taskhandle;
+extern TaskHandle_t g_Uart_Rx_taskhandle;
+extern TaskHandle_t g_PID_taskhandle;
+extern SemaphoreHandle_t g_SemaphoreHandle_For_Uart_RX;
+extern SemaphoreHandle_t g_SemaphoreHandle_For_PID;
+extern EventGroupHandle_t g_EventGroupHandle;
 
 extern void my_Init();//初始化函数
 extern float Kinematics_Solution(int16_t x, int16_t y);//运动学解算函数
+
+extern DJI_motor gm2006_1;
+extern DJI_motor gm2006_2;
+extern DJI_motor gm2006_3;
+extern DJI_motor gm2006_4;
 #define pi 3.1416
+
+
 
 
 #endif //RC_WORK1_ALL_H
