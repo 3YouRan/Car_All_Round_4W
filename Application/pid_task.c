@@ -21,8 +21,7 @@ void pid_task(void *arg){
     while(1){
         xSemaphoreTake(g_SemaphoreHandle_For_PID, portMAX_DELAY);
         Kinematic_solution(0.1,0.1,0.0);
-//        printf("pid_task running\n");
-//        printf("CAR:%d,%.2f,%.2f,%.2f\n\r",gm2006_1.can_id,gm2006_1.rotor_speed/36.0,Target_Speed_1,pid_speed.kp);
+
 
         //ËÙ¶È»·
         current_1=FW_PID_Realize(&pid_speed, Target_Speed_actual_1, gm2006_1.rotor_speed / 36.0);
