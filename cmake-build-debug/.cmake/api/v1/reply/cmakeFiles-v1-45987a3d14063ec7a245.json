@@ -5,16 +5,6 @@
 			"path" : "CMakeLists.txt"
 		},
 		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "D:/BaiduNetdiskDownload/Clion/CLion 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "D:/BaiduNetdiskDownload/Clion/CLion 2024.1.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystem.cmake.in"
-		},
-		{
 			"isGenerated" : true,
 			"path" : "cmake-build-debug/CMakeFiles/3.28.1/CMakeSystem.cmake"
 		},

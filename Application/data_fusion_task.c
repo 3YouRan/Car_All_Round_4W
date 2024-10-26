@@ -10,15 +10,15 @@ void data_fusion_radar(void)
     float err_angel= 0;
     int cnt1=0;
     Robot_Angle.angle_last = Robot_Angle.angle;
-    if(fabs(locater.continuousAngle - RaDar_Loc.total_angle)<=3.0f)
+    if(fabs(locater.continuousAngle - radar_data.total_angle)<=3.0f)
     {
-        if(fabs(RaDar_Loc.total_angle-Target_point.angle )<2 && fabs(locater.continuousAngle - Target_point.angle )<=3)
+        if(fabs(radar_data.total_angle-Target_point.angle )<2 && fabs(locater.continuousAngle - Target_point.angle )<=3)
         {
             cnt1++;
             if(cnt1 == 100)
             {
                 cnt1=0;
-                err_angel = locater.angle - RaDar_Loc.angle;//雷达接收的帧率慢,locater接收的帧率快
+                err_angel = locater.angle - radar_data.angle;//雷达接收的帧率慢,locater接收的帧率快
                 //但雷达数据准，这里用雷达的数据修正
             }
         }
