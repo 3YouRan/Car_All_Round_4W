@@ -2,7 +2,7 @@
 // Created by 陈瑜 on 24-9-18.
 //
 #include "all.h"
-
+#include "set_target.h"
 void my_Init() {
 
 
@@ -12,11 +12,12 @@ void my_Init() {
     FDCAN_Init(&hfdcan1);
     FDCAN_Filter_Config_Simple(&hfdcan1, 0x000, 0x7FF, 0x00000000, 0x00000000);
 
-    PID_Init(&pid_speed,&pid_position);//PID初始化
+    PID_Init(&pid_speed,&pid_position,&PID_POINT,&PID_Angle_POS,&PID_Angle_SPD);//PID初始化
 
+    set_runpoint_target();
 
     HAL_TIM_Base_Start_IT(&htim3);//定时器3初始化
 
     float angle_target = 0;
-
+    Set_Target_UartInit();
 }

@@ -79,6 +79,20 @@ const osThreadAttr_t SETTARGETTASK_attributes = {
   .priority = (osPriority_t) osPriorityLow,
   .stack_size = 128 * 4
 };
+/* Definitions for PID_Task */
+osThreadId_t PID_TaskHandle;
+const osThreadAttr_t PID_Task_attributes = {
+  .name = "PID_Task",
+  .priority = (osPriority_t) osPriorityAboveNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for Uart_Tx */
+osThreadId_t Uart_TxHandle;
+const osThreadAttr_t Uart_Tx_attributes = {
+  .name = "Uart_Tx",
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -89,6 +103,8 @@ void StartDefaultTask(void *argument);
 void data_fusion(void *argument);
 void robo_mov(void *argument);
 void set_target(void *argument);
+void pid_task(void *argument);
+void uart_tx_task(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -132,11 +148,17 @@ void MX_FREERTOS_Init(void) {
   /* creation of SETTARGETTASK */
   SETTARGETTASKHandle = osThreadNew(set_target, NULL, &SETTARGETTASK_attributes);
 
+  /* creation of PID_Task */
+  PID_TaskHandle = osThreadNew(pid_task, NULL, &PID_Task_attributes);
+
+  /* creation of Uart_Tx */
+  Uart_TxHandle = osThreadNew(uart_tx_task, NULL, &Uart_Tx_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
 
-  xTaskCreate(pid_task, "PID_Task", 64, NULL, osPriorityNormal+1, &g_PID_taskhandle);
-  xTaskCreate(uart_tx_task, "Uart_Tx_Task", 64, NULL, osPriorityNormal, &g_Uart_Tx_taskhandle);
+  // xTaskCreate(pid_task, "PID_Task", 64, NULL, osPriorityNormal+1, &g_PID_taskhandle);
+  // xTaskCreate(uart_tx_task, "Uart_Tx_Task", 64, NULL, osPriorityNormal+1, &g_Uart_Tx_taskhandle);
 
   /* USER CODE END RTOS_THREADS */
 
@@ -183,7 +205,9 @@ void data_fusion(void *argument)
   {
     CurrentTime1=xTaskGetTickCount();
 
-    data_fusion();
+    //usart_printf("%.2f\n\r",locater.continuousAngle);
+
+    data_fusion_radar();
 
     vTaskDelayUntil(&CurrentTime1,5);
 
@@ -208,7 +232,7 @@ void robo_mov(void *argument)
   {
     CurrentTime2=xTaskGetTickCount();
 
-    RunPoint_straight();
+    RunPoint_straight(Target_point);
 
     vTaskDelayUntil(&CurrentTime2,5);
 
@@ -229,9 +253,60 @@ void set_target(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+      vTaskDelay(100); // 1s delay
   }
   /* USER CODE END set_target */
+}
+
+/* USER CODE BEGIN Header_pid_task */
+/**
+* @brief Function implementing the PID_Task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_pid_task */
+void pid_task(void *argument)
+{
+  /* USER CODE BEGIN pid_task */
+   /* Infinite loop */
+   for(;;)
+   {
+     xSemaphoreTake(g_SemaphoreHandle_For_PID, portMAX_DELAY);
+     Kinematic_solution(0.1,0.1,0.0);
+
+
+     //速度�?
+     current_1=FW_PID_Realize(&pid_speed, Target_Speed_actual_1, gm2006_1.rotor_speed / 36.0);
+     current_2=FW_PID_Realize(&pid_speed, Target_Speed_actual_2, gm2006_2.rotor_speed / 36.0);
+     current_3=FW_PID_Realize(&pid_speed, Target_Speed_actual_3, gm2006_3.rotor_speed / 36.0);
+     current_4=FW_PID_Realize(&pid_speed, Target_Speed_actual_4, gm2006_4.rotor_speed / 36.0);
+     //角度�?
+
+     //发�?�电机can控制信号
+     GM2006_Current_Set(&hfdcan1, current_1, current_2, current_3, current_4, 0x200, GM_ID(1) | GM_ID(2)| GM_ID(3)|GM_ID(4));
+
+   }
+  /* USER CODE END pid_task */
+}
+
+/* USER CODE BEGIN Header_uart_tx_task */
+// // /**
+// // * @brief Function implementing the Uart_Tx thread.
+// // * @param argument: Not used
+// // * @retval None
+// // */
+/* USER CODE END Header_uart_tx_task */
+void uart_tx_task(void *argument)
+{
+  /* USER CODE BEGIN uart_tx_task */
+   /* Infinite loop */
+   for(;;)
+   {
+//     printf("%f\n\r",locater.continuousAngle);
+//      printf("2222222\n\r");
+     vTaskDelay(100); // 1s delay
+   }
+  /* USER CODE END uart_tx_task */
 }
 
 /* Private application code --------------------------------------------------*/
