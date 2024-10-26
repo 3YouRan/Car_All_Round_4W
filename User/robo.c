@@ -12,24 +12,25 @@
 Robot_Imu_Info_t Robot_Angle;
 
 
-
+float dis = 0.0f;   //当前与目标点的距离
+float v = 0.0f;
 void RunPoint_straight(pointStruct targetPoint)
 {
     float xSpeed;
     float ySpeed;
-    float dis = 0.0f;   //当前与目标点的距离
-    float v = 0.0f, omega = 0.0f; //速度、角速度
-    float err_x = (targetPoint.x - radar_data.pos_x);  //x差值
-    float err_y = (targetPoint.y - radar_data.pos_y);  //y差值
+    float omega = 0.0f; //速度、角速度
+    float err_x = (targetPoint.x - locater.pos_x);  //x差值
+    float err_y = (targetPoint.y - locater.pos_y);  //y差值
+
     //先计算向量长度
     dis = sqrt(err_x * err_x + err_y * err_y);
-
     //计算速度pid输
-    v = FW_PID_Realize(&PID_POINT,0, -dis );
 
-    FW_PID_Realize(&PID_Angle_POS, targetPoint.angle,Robot_Angle.total_angle);
+    v = FW_PID_Realize_without_brake(&PID_POINT,0, -dis );
+    //FW_PID_Realize(&PID_Angle_POS, targetPoint.angle,Robot_Angle.total_angle);
 
-    omega = FW_PID_Realize(&PID_Angle_SPD,PID_Angle_POS.output,locater.angular_speed);
+    omega = FW_PID_Realize(&PID_Angle_SPD,targetPoint.angle,locater.continuousAngle);
+    //omega = FW_PID_Realize(&PID_Angle_SPD,PID_Angle_POS.output,locater.angular_speed);
 
     //线速度分解为x和y的分量
     xSpeed = v * cos(atan2f(err_y, err_x));

@@ -27,7 +27,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 //            xEventGroupSetBitsFromISR(g_xEventGroup_Uart_Rx,(1<<0),NULL);
 //            xSemaphoreGiveFromISR(g_SemaphoreHandle_For_Uart_RX, NULL);//使用信号量唤醒UART_Rx任务
 
-            //USART_PID_Adjust(1);//鏁版嵁瑙ｆ瀽鍜屽弬鏁拌祴鍊煎嚱鏁?
+            USART_PID_Adjust(1);//鏁版嵁瑙ｆ瀽鍜屽弬鏁拌祴鍊煎嚱鏁?
 
 
             memset(DataBuff,0,sizeof(DataBuff));  //娓呯┖缂撳瓨鏁扮粍
@@ -58,53 +58,54 @@ float angle_now_4=0,angle_last_4=0,angle_total_4=0;
 
 bool Pos_flag=1;//是否开启位置控制
 
-//
-// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-// {
-//
-//     /* USER CODE BEGIN Callback 0 */
-//
-//     /* USER CODE END Callback 0 */
-//     if (htim->Instance == TIM4) {
-//         HAL_IncTick();
-//     }
-//     /* USER CODE BEGIN Callback 1 */
-//     if(htim->Instance==TIM3){
-//         time1++;
-//
-//         if(time1==5){
-//             time1=0;
-//             //速度爬坡
-//             //电机1速度爬坡
-//             if((Target_Speed_1 - Target_Speed_actual_1) > MIN_Spe_Increment){
-//                 Target_Speed_actual_1+=MIN_Spe_Increment;
-//             } else if((Target_Speed_1 - Target_Speed_actual_1) < -MIN_Spe_Increment){
-//                 Target_Speed_actual_1-=MIN_Spe_Increment;
-//             }
-//             //电机2速度爬坡
-//             if((Target_Speed_2 - Target_Speed_actual_2) > MIN_Spe_Increment){
-//                 Target_Speed_actual_2+=MIN_Spe_Increment;
-//             } else if((Target_Speed_2 - Target_Speed_actual_2) < -MIN_Spe_Increment){
-//                 Target_Speed_actual_2-=MIN_Spe_Increment;
-//             }
-//             //电机3速度爬坡
-//             if((Target_Speed_3 - Target_Speed_actual_3) > MIN_Spe_Increment){
-//                 Target_Speed_actual_3+=MIN_Spe_Increment;
-//             } else if((Target_Speed_3 - Target_Speed_actual_3) < -MIN_Spe_Increment){
-//                 Target_Speed_actual_3-=MIN_Spe_Increment;
-//             }
-//             //电机4速度爬坡
-//             if((Target_Speed_4 - Target_Speed_actual_4) > MIN_Spe_Increment){
-//                 Target_Speed_actual_4+=MIN_Spe_Increment;
-//             } else if((Target_Speed_4 - Target_Speed_actual_4) < -MIN_Spe_Increment){
-//                 Target_Speed_actual_4-=MIN_Spe_Increment;
-//             }
-// //            xEventGroupSetBitsFromISR(g_EventGroupHandle,(1<<0),NULL);
-//             xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);//使用信号量唤醒PID任务
-//         }
-//     }
-//     /* USER CODE END Callback 1 */
-// }
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    /* USER CODE BEGIN Callback 0 */
+
+    /* USER CODE END Callback 0 */
+    if (htim->Instance == TIM4) {
+        HAL_IncTick();
+    }
+    /* USER CODE BEGIN Callback 1 */
+    if(htim->Instance==TIM3){
+        time1++;
+
+        if(time1==5){
+            // printf("1321313\r\n");
+            // xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);//使用信号量唤醒PID任务
+
+            time1=0;
+            //速度爬坡
+            //电机1速度爬坡
+            // if((Target_Speed_1 - Target_Speed_actual_1) > MIN_Spe_Increment){
+            //     Target_Speed_actual_1+=MIN_Spe_Increment;
+            // } else if((Target_Speed_1 - Target_Speed_actual_1) < -MIN_Spe_Increment){
+            //     Target_Speed_actual_1-=MIN_Spe_Increment;
+            // }
+            // //电机2速度爬坡
+            // if((Target_Speed_2 - Target_Speed_actual_2) > MIN_Spe_Increment){
+            //     Target_Speed_actual_2+=MIN_Spe_Increment;
+            // } else if((Target_Speed_2 - Target_Speed_actual_2) < -MIN_Spe_Increment){
+            //     Target_Speed_actual_2-=MIN_Spe_Increment;
+            // }
+            // //电机3速度爬坡
+            // if((Target_Speed_3 - Target_Speed_actual_3) > MIN_Spe_Increment){
+            //     Target_Speed_actual_3+=MIN_Spe_Increment;
+            // } else if((Target_Speed_3 - Target_Speed_actual_3) < -MIN_Spe_Increment){
+            //     Target_Speed_actual_3-=MIN_Spe_Increment;
+            // }
+            // //电机4速度爬坡
+            // if((Target_Speed_4 - Target_Speed_actual_4) > MIN_Spe_Increment){
+            //     Target_Speed_actual_4+=MIN_Spe_Increment;
+            // } else if((Target_Speed_4 - Target_Speed_actual_4) < -MIN_Spe_Increment){
+            //     Target_Speed_actual_4-=MIN_Spe_Increment;
+            // }
+//            xEventGroupSetBitsFromISR(g_EventGroupHandle,(1<<0),NULL);
+        }
+    }
+    /* USER CODE END Callback 1 */
+}
 
 /*
  * @brief FDCAN接收数据回调函数 标准帧进入接收FIFO0，扩展帧进入接收FIFO1
@@ -119,7 +120,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
         FDCAN_RxHeaderTypeDef rx_header;
         uint8_t rx_data[8];
         HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rx_header, rx_data); //receive can data
-//        printf("FDCAN_FIFO0_get:id=%x,data=%x\r\n",rx_header.Identifier,rx_data[0]);
+        // printf("FDCAN_FIFO0_get:id=%x,data=%x\r\n",rx_header.Identifier,rx_data[0]);
         switch(rx_header.Identifier){
             case 0x201:{
                 gm2006_1.rotor_angle    = ((rx_data[0] << 8) | rx_data[1]);
@@ -161,7 +162,7 @@ void HAL_FDCAN_RxFifo1Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
         FDCAN_RxHeaderTypeDef rx_header;
         uint8_t rx_data[8];
         HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO1, &rx_header, rx_data); //receive can data
-//        printf("FDCAN_FIFO1_get:id=%x,data=%x\r\n",rx_header.Identifier,rx_data[0]);
+        // printf("FDCAN_FIFO1_get:id=%x,data=%x\r\n",rx_header.Identifier,rx_data[0]);
         switch(rx_header.Identifier){
 
         }

@@ -47,9 +47,9 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT->maxOutput = 600;
     PID_POINT->lastErr = 0;
     PID_POINT->output = 0;
-    PID_POINT->kp = 0.04;
+    PID_POINT->kp = 0.0;
     PID_POINT->ki = 0;
-    PID_POINT->kd = 5;
+    PID_POINT->kd = 0;
     PID_POINT->deadZone = 0.001;
 
     //PID_Angle_POS
@@ -72,9 +72,9 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_Angle_SPD->maxOutput = 600;
     PID_Angle_SPD->lastErr = 0;
     PID_Angle_SPD->output = 0;
-    PID_Angle_SPD->kp = 0.01;
-    PID_Angle_SPD->ki = 0.001;
-    PID_Angle_SPD->kd = 5;
+    PID_Angle_SPD->kp = 0.049;
+    PID_Angle_SPD->ki = 0.00;
+    PID_Angle_SPD->kd = 0;
     PID_Angle_SPD->deadZone = 0.001;
 
 
@@ -140,6 +140,32 @@ float FW_PID_Realize(PID* pid, float target, float feedback)//一次PID计算
     pid->lastErr = pid->err;
 
     if(target == 0) pid->output = 0; // 刹车时直接输出0
+    return pid->output;
+}
+/****************************************
+ * 作用：全量式PID计算
+ * 参数：PID参数结构体地址；目标值；反馈值
+ * 返回值：无
+ * ****************************************/
+float FW_PID_Realize_without_brake(PID* pid, float target, float feedback)//一次PID计算
+{
+
+    if(pid->err < pid->deadZone && pid->err > -pid->deadZone) pid->err = 0;//pid死区
+    pid->err = target - feedback;
+    pid->integral += pid->err;
+
+    if(pid->ki * pid->integral < -pid->maxIntegral) pid->integral = -pid->maxIntegral / pid->ki;//积分限幅
+    else if(pid->ki * pid->integral > pid->maxIntegral) pid->integral = pid->maxIntegral / pid->ki;
+
+    pid->output = (pid->kp * pid->err) + (pid->ki * pid->integral) + (pid->kd * (pid->err - pid->lastErr));//全量式PID
+
+    //输出限幅
+    if(pid->output > pid->maxOutput) pid->output = pid->maxOutput;
+    if(pid->output < -pid->maxOutput) pid->output = -pid->maxOutput;
+
+    pid->lastErr = pid->err;
+
+
     return pid->output;
 }
 /*

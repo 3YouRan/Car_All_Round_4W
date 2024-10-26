@@ -83,8 +83,8 @@ const osThreadAttr_t SETTARGETTASK_attributes = {
 osThreadId_t PID_TaskHandle;
 const osThreadAttr_t PID_Task_attributes = {
   .name = "PID_Task",
-  .priority = (osPriority_t) osPriorityAboveNormal,
-  .stack_size = 128 * 4
+  .priority = (osPriority_t) osPriorityHigh3,
+  .stack_size = 128 * 8
 };
 /* Definitions for Uart_Tx */
 osThreadId_t Uart_TxHandle;
@@ -137,7 +137,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  // defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of DataFusionTask */
   DataFusionTaskHandle = osThreadNew(data_fusion, NULL, &DataFusionTask_attributes);
@@ -268,22 +268,25 @@ void set_target(void *argument)
 void pid_task(void *argument)
 {
   /* USER CODE BEGIN pid_task */
+  portTickType CurrentTime_PID;
+
    /* Infinite loop */
    for(;;)
    {
-     xSemaphoreTake(g_SemaphoreHandle_For_PID, portMAX_DELAY);
-     Kinematic_solution(0.1,0.1,0.0);
+     // xSemaphoreTake(g_SemaphoreHandle_For_PID, portMAX_DELAY);
 
+     CurrentTime_PID=xTaskGetTickCount();
 
      //速度�?
-     current_1=FW_PID_Realize(&pid_speed, Target_Speed_actual_1, gm2006_1.rotor_speed / 36.0);
-     current_2=FW_PID_Realize(&pid_speed, Target_Speed_actual_2, gm2006_2.rotor_speed / 36.0);
-     current_3=FW_PID_Realize(&pid_speed, Target_Speed_actual_3, gm2006_3.rotor_speed / 36.0);
-     current_4=FW_PID_Realize(&pid_speed, Target_Speed_actual_4, gm2006_4.rotor_speed / 36.0);
+     current_1=FW_PID_Realize(&pid_speed, Target_Speed_1, gm2006_1.rotor_speed / 36.0);
+     current_2=FW_PID_Realize(&pid_speed, Target_Speed_2, gm2006_2.rotor_speed / 36.0);
+     current_3=FW_PID_Realize(&pid_speed, Target_Speed_3, gm2006_3.rotor_speed / 36.0);
+     current_4=FW_PID_Realize(&pid_speed, Target_Speed_4, gm2006_4.rotor_speed / 36.0);
      //角度�?
 
      //发�?�电机can控制信号
      GM2006_Current_Set(&hfdcan1, current_1, current_2, current_3, current_4, 0x200, GM_ID(1) | GM_ID(2)| GM_ID(3)|GM_ID(4));
+     vTaskDelayUntil(&CurrentTime_PID,5);
 
    }
   /* USER CODE END pid_task */
@@ -299,9 +302,17 @@ void pid_task(void *argument)
 void uart_tx_task(void *argument)
 {
   /* USER CODE BEGIN uart_tx_task */
+  portTickType CurrentTime3;
+
    /* Infinite loop */
    for(;;)
    {
+     CurrentTime3=xTaskGetTickCount();
+
+    //printf("%.1f,%.1f,%.2f,%.2f,%.2f,%.2f\n\r",radar_data.pos_x,radar_data.pos_y,radar_data.total_angle,locater.pos_x,locater.pos_y,locater.continuousAngle);
+    printf("%.2f,%.2f,%d\n\r",dis,PID_POINT.kp,0);
+     vTaskDelayUntil(&CurrentTime3,5);
+
 
      //printf("%.2f,%.2f,%.2f\n\r",locater.pos_x,locater.pos_y,locater.continuousAngle);
    }

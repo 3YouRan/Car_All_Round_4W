@@ -131,11 +131,11 @@ void USART_PID_Adjust(uint8_t Motor_n)
     if(Motor_n == 1)//左边电机
     {
         if(DataBuff[0]=='P' && DataBuff[1]=='1') // 位置环P
-            PID_Angle_POS.kp = data_Get;
+            PID_POINT.kp = data_Get;
         else if(DataBuff[0]=='I' && DataBuff[1]=='1') // 位置环I
-            PID_Angle_POS.ki = data_Get;
+            PID_Angle_SPD.ki = data_Get;
         else if(DataBuff[0]=='D' && DataBuff[1]=='1') // 位置环D
-            PID_Angle_POS.kd = data_Get;
+            PID_Angle_SPD.kd = data_Get;
         else if(DataBuff[0]=='P' && DataBuff[1]=='2') // 速度环P
             Target_point.x = data_Get;
         else if(DataBuff[0]=='I' && DataBuff[1]=='2') // 速度环I

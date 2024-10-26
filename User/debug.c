@@ -24,7 +24,7 @@ extern SemaphoreHandle_t g_CAN_TASK_Semphr;
 
 uint8_t debugRvAll[LOCATER_DATA_SIZE]={0};//存放串口2直接接收数据
 //原来写的u_int8_t,怪不得串口你接收不到数据呢
-char debugRvAll_radar[RADAR_DATA_SIZE]={0};//存放串口1直接接收数据
+uint8_t debugRvAll_radar[RADAR_DATA_SIZE]={0};//存放串口1直接接收数据
 
 char debugRvData_radar_x[DEBUG_RV_MXSIZE]={0};//
 char debugRvData_radar_y[DEBUG_RV_MXSIZE]={0};//
@@ -33,19 +33,19 @@ char debugRvData_radar_angle[DEBUG_RV_MXSIZE]={0};//
 char *pEnd;
 
 //c串口重定向
-//
-// void usart_printf(const char* format, ...)
-// {
-//     va_list args;
-//     uint32_t length;
-//     va_start(args, format);
-//
-//     length = vsnprintf((char*)send_buf, TX_BUF_SIZE, (const char*)format, args);
-//
-//     va_end(args);
-//
-//     HAL_UART_Transmit_DMA(&huart2, (uint8_t*)send_buf, length);
-// }
+
+ void usart_printf(const char* format, ...)
+ {
+     va_list args;
+     uint32_t length;
+     va_start(args, format);
+
+     length = vsnprintf((char*)send_buf, TX_BUF_SIZE, (const char*)format, args);
+
+     va_end(args);
+
+     HAL_UART_Transmit_DMA(&huart4, (uint8_t*)send_buf, length);
+ }
 
 
 //串口接收
@@ -114,15 +114,17 @@ void Set_Target_UartIdleCallback_radar(UART_HandleTypeDef *huart)//注意一个�
 {
     HAL_UART_DMAStop(huart);//停止本次DMA传输
 
-    if(debugRvAll_radar[0] == 'A')
+    RaDar_Data_Cal((uint8_t *)&debugRvAll_radar,&radar_data);
+    /*
+    if(debugRvAll_radar[0] == 'A' && debugRvAll_radar[5] == 'B' && debugRvAll_radar[10])
     {
-          memcpy(debugRvData_radar_x ,&debugRvAll_radar[1],4);//
-          memcpy(debugRvData_radar_y ,&debugRvAll_radar[5],4);//
-          memcpy(debugRvData_radar_angle ,&debugRvAll_radar[9],4);//
+          memcpy(debugRvData_radar_x ,&debugRvAll_radar[2],4);//
+          memcpy(debugRvData_radar_y ,&debugRvAll_radar[6],4);//
+          memcpy(debugRvData_radar_angle ,&debugRvAll_radar[10],4);//
     }
 
 
-    radar_data.pos_x= -strtof(debugRvData_radar_x,&pEnd)/10;
+    radar_data.pos_x= -atof(debugRvData_radar_x)/10;
     radar_data.pos_y= -strtof(debugRvData_radar_y,&pEnd)/10;
     radar_data.angle = (strtof(debugRvData_radar_angle,&pEnd))* 180.0f / pi / 1000.0f;
 
@@ -137,6 +139,7 @@ void Set_Target_UartIdleCallback_radar(UART_HandleTypeDef *huart)//注意一个�
     }
     radar_data.total_angle = (float)radar_data.circleNum * 360.0f + radar_data.angle;
 
+*/
 
     //计算接收到的数据长度，接收到的数据长度等于数组的最大存储长度减去DMA空闲的数据区长度
     uint8_t data_length_radar  = DEBUG_RV_MXSIZE - __HAL_DMA_GET_COUNTER(huart->hdmarx);

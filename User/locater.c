@@ -20,7 +20,7 @@ void locater_data_rec(uint8_t *data, locater_def *loc)
         //
         loc->pos_x = 1.0054746843f*union_loc.data_f[0] + loc->pos_x_base;
         loc->pos_y = 1.0054746843f*union_loc.data_f[1] + loc->pos_y_base;
-        loc->angle = union_loc.data_f[2];
+        loc->angle = -union_loc.data_f[2];
 
         loc->angular_speed = 500.0f*(loc->angle - loc->lastAngle); // 500.0f为参数,配合pid
 

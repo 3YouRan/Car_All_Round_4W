@@ -130,7 +130,7 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/RC_All_Round
 CMAKE_LINKER:FILEPATH=D:/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-ld.exe
 
 //make program
-CMAKE_MAKE_PROGRAM:FILEPATH=D:/BAIDUN~1/Clion/CLION2~1.1/bin/ninja/win/x64/ninja.exe
+CMAKE_MAKE_PROGRAM:FILEPATH=D:/BaiduNetdiskDownload/Clion/CLion 2024.1.1/bin/ninja/win/x64/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.

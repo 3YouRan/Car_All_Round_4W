@@ -32,5 +32,5 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
 float Inc_PID_Realize(PID* pid, float target, float feedback);//一次PID计算
 float FW_PID_Realize(PID* pid, float target, float feedback);
 double transfer(double x, double in_min, double in_max, double out_min, double out_max);//映射函数，将编码器的值（0~8191）转换为弧度制的角度值（-pi~pi）
-
+float FW_PID_Realize_without_brake(PID* pid, float target, float feedback);
 #endif

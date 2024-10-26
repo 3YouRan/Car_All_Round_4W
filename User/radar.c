@@ -11,7 +11,7 @@ void RaDar_Data_Cal(uint8_t *data,RaDar_Info_t *loc_data)
     static uint8_t Fresh_Flag=0;
     static int cnt=0;
     static float base_x=0 , base_y=0, base_angle=0;
-    if(data[0]=='A')
+    if(data[0]=='A' )
     {
 
         loc_data->angle_last = loc_data->angle;

@@ -96,7 +96,7 @@ extern DJI_motor gm2006_4;
 #define pi 3.1416
 #define r 1234//待定
 #define LOCATER_DATA_SIZE 14
-#define RADAR_DATA_SIZE 13
+#define RADAR_DATA_SIZE 14
 #define DEBUG_RV_MXSIZE 255
 
 
@@ -109,7 +109,8 @@ extern float current_4;
 extern PID PID_POINT;
 extern PID PID_Angle_POS;
 extern PID PID_Angle_SPD;
-
+extern float dis;
+extern float v;
 extern locater_def locater;
 
 extern Robot_Imu_Info_t Robot_Angle;
