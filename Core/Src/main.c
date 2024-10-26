@@ -28,6 +28,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "all.h"
+#include "debug.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,9 +97,11 @@ int main(void)
   MX_FDCAN1_Init();
   MX_USART3_UART_Init();
   MX_TIM3_Init();
+  MX_USART2_UART_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   my_Init();
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -118,8 +122,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//    printf("Hello World!\n");
-//    HAL_Delay(500);
+     printf("Hello World!\n");
+     HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }

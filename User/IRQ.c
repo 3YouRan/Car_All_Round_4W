@@ -3,7 +3,8 @@
 ////
 
 #include "all.h"
-
+#include "debug.h"
+#include "radar.h"
 /*
  * @brief UART接收数据回调函数
  *
@@ -12,8 +13,10 @@
  */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+
     if(huart==&huart3)
     {
+
         RxLine++;                      //姣忔帴鏀跺埌涓?涓暟鎹紝杩涘叆鍥炶皟鏁版嵁闀垮害鍔?1
         DataBuff[RxLine-1]=RxBuffer[0];  //鎶婃瘡娆℃帴鏀跺埌鐨勬暟鎹繚瀛樺埌缂撳瓨鏁扮粍
         if(RxBuffer[0]=='!')           //鎺ユ敹缁撴潫鏍囧織浣?
@@ -23,7 +26,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 printf("UART DataBuff[%d] = %c\r\n",i,DataBuff[i]);
 //            xEventGroupSetBitsFromISR(g_xEventGroup_Uart_Rx,(1<<0),NULL);
 //            xSemaphoreGiveFromISR(g_SemaphoreHandle_For_Uart_RX, NULL);//使用信号量唤醒UART_Rx任务
-            USART_PID_Adjust(1);//鏁版嵁瑙ｆ瀽鍜屽弬鏁拌祴鍊煎嚱鏁?
+
+            //USART_PID_Adjust(1);//鏁版嵁瑙ｆ瀽鍜屽弬鏁拌祴鍊煎嚱鏁?
+
 
             memset(DataBuff,0,sizeof(DataBuff));  //娓呯┖缂撳瓨鏁扮粍
             RxLine=0;  //娓呯┖鎺ユ敹闀垮害
@@ -52,52 +57,54 @@ float angle_now_3=0,angle_last_3=0,angle_total_3=0;//电机位置统计
 float angle_now_4=0,angle_last_4=0,angle_total_4=0;
 
 bool Pos_flag=1;//是否开启位置控制
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
 
-    /* USER CODE BEGIN Callback 0 */
-
-    /* USER CODE END Callback 0 */
-    if (htim->Instance == TIM4) {
-        HAL_IncTick();
-    }
-    /* USER CODE BEGIN Callback 1 */
-    if(htim->Instance==TIM3){
-        time1++;
-
-        if(time1==5){
-            time1=0;
-            //速度爬坡
-            //电机1速度爬坡
-            if((Target_Speed_1 - Target_Speed_actual_1) > MIN_Spe_Increment){
-                Target_Speed_actual_1+=MIN_Spe_Increment;
-            } else if((Target_Speed_1 - Target_Speed_actual_1) < -MIN_Spe_Increment){
-                Target_Speed_actual_1-=MIN_Spe_Increment;
-            }
-            //电机2速度爬坡
-            if((Target_Speed_2 - Target_Speed_actual_2) > MIN_Spe_Increment){
-                Target_Speed_actual_2+=MIN_Spe_Increment;
-            } else if((Target_Speed_2 - Target_Speed_actual_2) < -MIN_Spe_Increment){
-                Target_Speed_actual_2-=MIN_Spe_Increment;
-            }
-            //电机3速度爬坡
-            if((Target_Speed_3 - Target_Speed_actual_3) > MIN_Spe_Increment){
-                Target_Speed_actual_3+=MIN_Spe_Increment;
-            } else if((Target_Speed_3 - Target_Speed_actual_3) < -MIN_Spe_Increment){
-                Target_Speed_actual_3-=MIN_Spe_Increment;
-            }
-            //电机4速度爬坡
-            if((Target_Speed_4 - Target_Speed_actual_4) > MIN_Spe_Increment){
-                Target_Speed_actual_4+=MIN_Spe_Increment;
-            } else if((Target_Speed_4 - Target_Speed_actual_4) < -MIN_Spe_Increment){
-                Target_Speed_actual_4-=MIN_Spe_Increment;
-            }
-//            xEventGroupSetBitsFromISR(g_EventGroupHandle,(1<<0),NULL);
-            xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);//使用信号量唤醒PID任务
-        }
-    }
-    /* USER CODE END Callback 1 */
-}
+//
+// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+// {
+//
+//     /* USER CODE BEGIN Callback 0 */
+//
+//     /* USER CODE END Callback 0 */
+//     if (htim->Instance == TIM4) {
+//         HAL_IncTick();
+//     }
+//     /* USER CODE BEGIN Callback 1 */
+//     if(htim->Instance==TIM3){
+//         time1++;
+//
+//         if(time1==5){
+//             time1=0;
+//             //速度爬坡
+//             //电机1速度爬坡
+//             if((Target_Speed_1 - Target_Speed_actual_1) > MIN_Spe_Increment){
+//                 Target_Speed_actual_1+=MIN_Spe_Increment;
+//             } else if((Target_Speed_1 - Target_Speed_actual_1) < -MIN_Spe_Increment){
+//                 Target_Speed_actual_1-=MIN_Spe_Increment;
+//             }
+//             //电机2速度爬坡
+//             if((Target_Speed_2 - Target_Speed_actual_2) > MIN_Spe_Increment){
+//                 Target_Speed_actual_2+=MIN_Spe_Increment;
+//             } else if((Target_Speed_2 - Target_Speed_actual_2) < -MIN_Spe_Increment){
+//                 Target_Speed_actual_2-=MIN_Spe_Increment;
+//             }
+//             //电机3速度爬坡
+//             if((Target_Speed_3 - Target_Speed_actual_3) > MIN_Spe_Increment){
+//                 Target_Speed_actual_3+=MIN_Spe_Increment;
+//             } else if((Target_Speed_3 - Target_Speed_actual_3) < -MIN_Spe_Increment){
+//                 Target_Speed_actual_3-=MIN_Spe_Increment;
+//             }
+//             //电机4速度爬坡
+//             if((Target_Speed_4 - Target_Speed_actual_4) > MIN_Spe_Increment){
+//                 Target_Speed_actual_4+=MIN_Spe_Increment;
+//             } else if((Target_Speed_4 - Target_Speed_actual_4) < -MIN_Spe_Increment){
+//                 Target_Speed_actual_4-=MIN_Spe_Increment;
+//             }
+// //            xEventGroupSetBitsFromISR(g_EventGroupHandle,(1<<0),NULL);
+//             xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);//使用信号量唤醒PID任务
+//         }
+//     }
+//     /* USER CODE END Callback 1 */
+// }
 
 /*
  * @brief FDCAN接收数据回调函数 标准帧进入接收FIFO0，扩展帧进入接收FIFO1

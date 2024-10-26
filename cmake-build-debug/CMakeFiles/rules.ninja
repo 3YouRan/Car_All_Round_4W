@@ -52,7 +52,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "D:\BaiduNetdiskDownload\Clion\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Car_All_Round_4W -BD:\Car_All_Round_4W\cmake-build-debug
+  command = "D:\BaiduNetdiskDownload\Clion\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Car_All_Round_4W\Car_All_Round_4W\Car_All_Round_4W -BD:\Car_All_Round_4W\Car_All_Round_4W\Car_All_Round_4W\cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

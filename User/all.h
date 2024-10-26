@@ -46,6 +46,8 @@
 #include "locater.h"
 
 #include "robo.h"
+
+#include "debug.h"
 //电机1位置和速度
 extern float Target_Speed_1;
 extern float Target_Speed_actual_1;
@@ -93,6 +95,15 @@ extern DJI_motor gm2006_3;
 extern DJI_motor gm2006_4;
 #define pi 3.1416
 #define r 1234//待定
+#define LOCATER_DATA_SIZE 14
+#define RADAR_DATA_SIZE 13
+#define DEBUG_RV_MXSIZE 255
+
+
+extern float current_1;
+extern float current_2;
+extern float current_3;
+extern float current_4;
 
 //宏定义跑直线需要的三个pid
 extern PID PID_POINT;
@@ -103,11 +114,14 @@ extern locater_def locater;
 
 extern Robot_Imu_Info_t Robot_Angle;
 
-extern RaDar_Info_t RaDar_Loc;
 
 extern float angle_target ;
 void Kinematic_solution(float v_x,float v_y,float w);
 
 extern pointStruct Target_point;
+
+extern uint8_t debugRvAll[LOCATER_DATA_SIZE];
+
+extern RaDar_Info_t radar_data;
 
 #endif //RC_WORK1_ALL_H
