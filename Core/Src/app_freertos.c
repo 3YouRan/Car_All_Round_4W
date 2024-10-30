@@ -83,8 +83,8 @@ const osThreadAttr_t SETTARGETTASK_attributes = {
 osThreadId_t PID_TaskHandle;
 const osThreadAttr_t PID_Task_attributes = {
   .name = "PID_Task",
-  .priority = (osPriority_t) osPriorityHigh3,
-  .stack_size = 128 * 8
+  .priority = (osPriority_t) osPriorityAboveNormal,
+  .stack_size = 128 * 4
 };
 /* Definitions for Uart_Tx */
 osThreadId_t Uart_TxHandle;
@@ -137,7 +137,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  // defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of DataFusionTask */
   DataFusionTaskHandle = osThreadNew(data_fusion, NULL, &DataFusionTask_attributes);
@@ -309,8 +309,10 @@ void uart_tx_task(void *argument)
    {
      CurrentTime3=xTaskGetTickCount();
 
-    //printf("%.1f,%.1f,%.2f,%.2f,%.2f,%.2f\n\r",radar_data.pos_x,radar_data.pos_y,radar_data.total_angle,locater.pos_x,locater.pos_y,locater.continuousAngle);
-    printf("%.2f,%.2f,%d\n\r",dis,PID_POINT.kp,0);
+    // printf("%.1f,%.1f,%.2f,%.2f,%.2f,%.2f\n\r",radar_data.pos_x,radar_data.pos_y,radar_data.total_angle,locater.pos_x,locater.pos_y,locater.continuousAngle);
+    // printf("%.2f,%.2f,%d\n\r",0,dis);
+     printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
+     // printf("%.1f,%.1f,%.2f\n\r",radar_data.pos_x,radar_data.pos_y,radar_data.total_angle);
      vTaskDelayUntil(&CurrentTime3,5);
 
 

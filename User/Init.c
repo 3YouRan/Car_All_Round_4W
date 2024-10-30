@@ -19,6 +19,5 @@ void my_Init() {
 
     HAL_TIM_Base_Start_IT(&htim3);//定时器3初始化
 
-    float angle_target = 0;
     Set_Target_UartInit();
 }

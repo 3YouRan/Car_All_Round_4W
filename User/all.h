@@ -124,5 +124,6 @@ extern pointStruct Target_point;
 extern uint8_t debugRvAll[LOCATER_DATA_SIZE];
 
 extern RaDar_Info_t radar_data;
+extern int cnt_radar;
 
 #endif //RC_WORK1_ALL_H

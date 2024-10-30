@@ -1,6 +1,11 @@
 
 //created by dyy on 24-10-26
 
+//串口二接收码盘
+//串口三打印
+//串口四给码盘发复位
+//串口五接收视觉
+
 #include "debug.h"
 #include "usart.h"
 #include "pid.h"
@@ -18,7 +23,7 @@ uint8_t send_buf[TX_BUF_SIZE];
 #define TX_BUF_SIZE 512
 uint8_t send_buf[TX_BUF_SIZE];
 
-
+int cnt_radar;//
 extern int cnt_mood;
 extern SemaphoreHandle_t g_CAN_TASK_Semphr;
 
@@ -54,15 +59,15 @@ void Set_Target_UartInit()
     __HAL_UART_ENABLE_IT(&huart2, UART_IT_IDLE);//使能串口2的空闲中断,用于串口接收
     HAL_UART_Receive_DMA(&huart2, (uint8_t*)&debugRvAll, DEBUG_RV_MXSIZE);//开启串口的DMA接收，debugRvAll存储串口接受的第一手数据
 
-    __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);//使能串口1的空闲中断,用于串口接收
-    HAL_UART_Receive_DMA(&huart1, (uint8_t*)&debugRvAll_radar, DEBUG_RV_MXSIZE);//开启串口的DMA接收，debugRvAll_radar存储串口接受的第一手数据
+    __HAL_UART_ENABLE_IT(&huart5, UART_IT_IDLE);//使能串口1的空闲中断,用于串口接收
+    HAL_UART_Receive_DMA(&huart5, (uint8_t*)&debugRvAll_radar, DEBUG_RV_MXSIZE);//开启串口的DMA接收，debugRvAll_radar存储串口接受的第一手数据
 
 }
 
 void Set_Target_UartIdleCallback(UART_HandleTypeDef *huart);
 void Set_Target_UartIrqHandler(UART_HandleTypeDef *huart)
 {
-    if(huart->Instance == huart2.Instance)//判断是否是串口1
+    if(huart->Instance == huart2.Instance)//判断是否是串口2
     {
         if(RESET != __HAL_UART_GET_FLAG(huart, UART_FLAG_IDLE))//判断是否是空闲中断
         {
@@ -71,7 +76,7 @@ void Set_Target_UartIrqHandler(UART_HandleTypeDef *huart)
         }
     }
 
-    if(huart->Instance == huart1.Instance)//判断是否是串口1
+    if(huart->Instance == huart5.Instance)//判断是否是串口1
     {
         if(RESET != __HAL_UART_GET_FLAG(huart, UART_FLAG_IDLE))//判断是否是空闲中断
         {
@@ -82,7 +87,7 @@ void Set_Target_UartIrqHandler(UART_HandleTypeDef *huart)
 }
 
 uint8_t data_length  =0;
-void Set_Target_UartIdleCallback(UART_HandleTypeDef *huart)//注意一个问题，调用的时候再写&huart1，否则在这个函数里就写&huart1打印会出问题
+void Set_Target_UartIdleCallback(UART_HandleTypeDef *huart)//注意一个问题，调用的时候再写&huart5，否则在这个函数里就写&huart5打印会出问题
 {
 //    printf("%c,%c,%c,%c,%c,%c\n\r",debugRvAll[0],debugRvAll[1],debugRvAll[2],debugRvAll[3],debugRvAll[4],debugRvAll[5]);
     HAL_UART_DMAStop(huart);//停止本次DMA传输
@@ -94,8 +99,8 @@ void Set_Target_UartIdleCallback(UART_HandleTypeDef *huart)//注意一个问题�
     //if(data_length==14){
 
         locater_data_rec((uint8_t *)&debugRvAll,&locater);   //解包
+        // printf("%f\n\r",locater.continuousAngle);
 
-        //printf("%f\n\r",locater.continuousAngle);
    // printf("%.2f,%.2f,%.2f\n\r",locater.pos_x,locater.pos_y,locater.continuousAngle);
 
         data_length = 0;
@@ -110,11 +115,24 @@ void Set_Target_UartIdleCallback(UART_HandleTypeDef *huart)//注意一个问题�
 
 uint8_t data_length_radar  =0;
 
-void Set_Target_UartIdleCallback_radar(UART_HandleTypeDef *huart)//注意一个问题，调用的时候再写&huart1，否则在这个函数里就写&huart1打印会出问题
+void Set_Target_UartIdleCallback_radar(UART_HandleTypeDef *huart)//注意一个问题，调用的时候再写&huart5，否则在这个函数里就写&huart5打印会出问题
 {
     HAL_UART_DMAStop(huart);//停止本次DMA传输
 
     RaDar_Data_Cal((uint8_t *)&debugRvAll_radar,&radar_data);
+    if(cnt_radar <= 50)
+    {
+        radar_data.pos_x_first = radar_data.pos_x;
+        radar_data.pos_y_first = radar_data.pos_y;
+        radar_data.total_angle_first  = radar_data.total_angle;
+        cnt_radar++;
+    }
+    radar_data.pos_x =  0.5*(radar_data.pos_x - radar_data.pos_x_first)*sqrtf(2.0);
+    radar_data.pos_y =  0.5*(radar_data.pos_y - radar_data.pos_y_first)*sqrtf(2.0);
+
+
+
+
     /*
     if(debugRvAll_radar[0] == 'A' && debugRvAll_radar[5] == 'B' && debugRvAll_radar[10])
     {

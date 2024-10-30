@@ -10,7 +10,7 @@ float current_4;
 #define R_Car 0.142
 #define R_Wheel 0.041
 void Kinematic_solution(float v_x,float v_y,float w){
-    Target_Speed_1=(w*R_Car+(v_x*sin(pi/2.0)+v_y*sin(0.0)))/(2*pi/60.0)/R_Wheel;//
+    Target_Speed_1=(w*R_Car+(v_x*sin(pi/2.0)+v_y*sin(0.0)))/(2*pi/60.0)/R_Wheel;//rpm»¯Îª¶È/s
     Target_Speed_2=(w*R_Car+(v_x*sin(0.0)+v_y*sin(pi/2.0)))/(2*pi/60.0)/R_Wheel;
     Target_Speed_3=(w*R_Car+(v_x*sin(-pi/2.0)+v_y*sin(0.0)))/(2*pi/60.0)/R_Wheel;
     Target_Speed_4=(w*R_Car+(v_x*sin(0.0)+v_y*sin(-pi/2.0)))/(2*pi/60.0)/R_Wheel;

@@ -18,11 +18,17 @@ typedef struct
     float pos_x;
     float pos_y;
 
+    float pos_x_first;
+    float pos_y_first;
+
+
     float angle_last;
     float angle;
 
     int circleNum;
     float total_angle;
+    float total_angle_first;
+
 
 }RaDar_Info_t;
 
