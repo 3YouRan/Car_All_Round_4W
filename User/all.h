@@ -107,6 +107,8 @@ extern float current_4;
 
 //宏定义跑直线需要的三个pid
 extern PID PID_POINT;
+extern PID PID_POINT_x;
+extern PID PID_POINT_y;
 extern PID PID_Angle_POS;
 extern PID PID_Angle_SPD;
 extern float dis;
@@ -125,5 +127,6 @@ extern uint8_t debugRvAll[LOCATER_DATA_SIZE];
 
 extern RaDar_Info_t radar_data;
 extern int cnt_radar;
+
 
 #endif //RC_WORK1_ALL_H

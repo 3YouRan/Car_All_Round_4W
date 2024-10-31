@@ -12,9 +12,12 @@ void my_Init() {
     FDCAN_Init(&hfdcan1);
     FDCAN_Filter_Config_Simple(&hfdcan1, 0x000, 0x7FF, 0x00000000, 0x00000000);
 
+    //set_runpoint_target(20,0,0);
     set_runpoint_target(0,0,0);
+    set_runpoint_target(0,0,0);
+    // HAL_Delay(200);
 
-    PID_Init(&pid_speed,&pid_position,&PID_POINT,&PID_Angle_POS,&PID_Angle_SPD);//PID初始化
+    PID_Init(&pid_speed,&pid_position,&PID_POINT,&PID_Angle_POS,&PID_Angle_SPD,&PID_POINT_x,&PID_POINT_y);//PID参数初始化
 
 
     HAL_TIM_Base_Start_IT(&htim3);//定时器3初始化

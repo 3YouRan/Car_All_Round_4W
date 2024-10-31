@@ -310,10 +310,11 @@ void uart_tx_task(void *argument)
      CurrentTime3=xTaskGetTickCount();
 
     // printf("%.1f,%.1f,%.2f,%.2f,%.2f,%.2f\n\r",radar_data.pos_x,radar_data.pos_y,radar_data.total_angle,locater.pos_x,locater.pos_y,locater.continuousAngle);
-    // printf("%.2f,%.2f,%d\n\r",0,dis);
-     printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
+    // printf("%d,%.2f\n\r",0,dis);
+     // printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
+     printf("%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,Target_point.y,locater.pos_y);
      // printf("%.1f,%.1f,%.2f\n\r",radar_data.pos_x,radar_data.pos_y,radar_data.total_angle);
-     vTaskDelayUntil(&CurrentTime3,5);
+     vTaskDelayUntil(&CurrentTime3,20);
 
 
      //printf("%.2f,%.2f,%.2f\n\r",locater.pos_x,locater.pos_y,locater.continuousAngle);

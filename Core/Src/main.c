@@ -102,13 +102,16 @@ int main(void)
   MX_UART4_Init();
   MX_UART5_Init();
   /* USER CODE BEGIN 2 */
-  my_Init();
+  // my_Init();
 
+  //给陀螺仪的复位一定要接在前面
   HAL_Delay(200);
   usart_printf("A");
   usart_printf("A");
   usart_printf("A");
   HAL_Delay(200);
+
+  my_Init();
 
   /* USER CODE END 2 */
 

@@ -24,18 +24,25 @@ void RunPoint_straight(pointStruct targetPoint)
 
     float xSpeed;
     float ySpeed;
+    float v_x = 0.0f;
+    float v_y = 0.0f;
+
     float omega = 0.0f; //速度、角速度
-    float err_x = (targetPoint.x - radar_data.pos_x);  //x差值
-    float err_y = (targetPoint.y - radar_data.pos_y);  //y差值
+    float err_x = (targetPoint.x - locater.pos_x);  //x差值
+    float err_y = (targetPoint.y - locater.pos_y);  //y差值
 
     //先计算向量长度
     dis = sqrt(err_x * err_x + err_y * err_y);
     //计算速度pid输
 
-    // v_x = FW_PID_Realize_without_brake(&PID_POINT,Target_point.x, err_x );
+    v_x = FW_PID_Realize_without_brake(&PID_POINT_x,Target_point.x, locater.pos_x );
+    // v_y = FW_PID_Realize_without_brake(&PID_POINT_y,Target_point.y, locater.pos_y );
+    // v_x = 0;
+    v_y = 0;
 
     // v = FW_PID_Realize_without_brake(&PID_POINT,0, -dis );
-    //FW_PID_Realize(&PID_Angle_POS, targetPoint.angle,Robot_Angle.total_angle);
+
+    //FW_PID_Realize(&PID_Angle_POS, targetPoint.angle,Robot_Angle.total_angle);//雷达数据
 
     omega = FW_PID_Realize(&PID_Angle_POS,targetPoint.angle,locater.continuousAngle);//位置环
     // omega = FW_PID_Realize(&PID_Angle_SPD,PID_Angle_POS.output,locater.angular_speed);//数据调整
@@ -45,7 +52,9 @@ void RunPoint_straight(pointStruct targetPoint)
     xSpeed = v * cos(atan2f(err_y, err_x));
     ySpeed = v * sin(atan2f(err_y, err_x));
 
-    Kinematic_solution(xSpeed,ySpeed,omega);
+
+    Kinematic_solution(v_x,v_y,omega);
+    // Kinematic_solution(xSpeed,ySpeed,omega);
 
 
 
