@@ -356,6 +356,7 @@ void nrftask(void *argument)
     if (NRF24L01_RxPacket(Speed_PS_Rece_Buf) == 0) {
 
     }
+
     control_data.L_X=Speed_PS_Rece_Buf[0];
     control_data.L_Y=Speed_PS_Rece_Buf[1];
     control_data.R_X=Speed_PS_Rece_Buf[2];

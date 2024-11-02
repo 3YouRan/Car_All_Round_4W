@@ -118,10 +118,9 @@ int main(void)
   while(NRF24L01_Check())//¼ì²â´íÎó£¬return 1
   {
     printf("nrf defete\r\n");
-    osDelay(100);
   }
-  NRF24L01_RX_Mode();
 
+  NRF24L01_RX_Mode();
 
 
   /* USER CODE END 2 */
