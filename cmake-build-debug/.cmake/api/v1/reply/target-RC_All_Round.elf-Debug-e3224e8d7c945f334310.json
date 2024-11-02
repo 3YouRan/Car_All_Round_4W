@@ -190,51 +190,51 @@
 			[
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Core/Inc"
+					"path" : "D:/Car_All_Round_4W/Core/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc"
+					"path" : "D:/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
+					"path" : "D:/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Device/ST/STM32G4xx/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Device/ST/STM32G4xx/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/User"
+					"path" : "D:/Car_All_Round_4W/User"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/BSP"
+					"path" : "D:/Car_All_Round_4W/BSP"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Application"
+					"path" : "D:/Car_All_Round_4W/Application"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Controller"
+					"path" : "D:/Car_All_Round_4W/Controller"
 				}
 			],
 			"language" : "C",
@@ -256,9 +256,7 @@
 				10,
 				12,
 				14,
-				25,
-				26,
-				27,
+				16,
 				28,
 				29,
 				30,
@@ -269,13 +267,10 @@
 				35,
 				36,
 				37,
-				104,
-				105,
-				106,
-				107,
-				108,
-				109,
-				110,
+				38,
+				39,
+				40,
+				41,
 				111,
 				112,
 				113,
@@ -287,24 +282,33 @@
 				119,
 				120,
 				121,
+				122,
 				123,
+				124,
+				125,
+				126,
 				127,
 				128,
-				147,
-				148,
-				150,
-				151,
-				152,
-				153,
-				154,
-				155,
+				129,
+				130,
+				132,
+				136,
+				137,
 				156,
-				158,
+				157,
+				159,
 				160,
+				161,
 				162,
+				163,
 				164,
-				166,
-				168
+				165,
+				167,
+				169,
+				171,
+				173,
+				175,
+				177
 			]
 		},
 		{
@@ -397,57 +401,57 @@
 			[
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Core/Inc"
+					"path" : "D:/Car_All_Round_4W/Core/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc"
+					"path" : "D:/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
+					"path" : "D:/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Device/ST/STM32G4xx/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Device/ST/STM32G4xx/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/User"
+					"path" : "D:/Car_All_Round_4W/User"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/BSP"
+					"path" : "D:/Car_All_Round_4W/BSP"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Application"
+					"path" : "D:/Car_All_Round_4W/Application"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Controller"
+					"path" : "D:/Car_All_Round_4W/Controller"
 				}
 			],
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				38
+				42
 			]
 		}
 	],
@@ -476,7 +480,7 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=D:/STM32/proj/Car_All_Round_4W/cmake-build-debug/RC_All_Round.map",
+				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=D:/Car_All_Round_4W/cmake-build-debug/RC_All_Round.map",
 				"role" : "flags"
 			},
 			{
@@ -501,7 +505,7 @@
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "D:/STM32/proj/Car_All_Round_4W/STM32G474VETX_FLASH.ld",
+				"fragment" : "D:/Car_All_Round_4W/STM32G474VETX_FLASH.ld",
 				"role" : "flags"
 			}
 		],
@@ -528,9 +532,7 @@
 				10,
 				12,
 				14,
-				25,
-				26,
-				27,
+				16,
 				28,
 				29,
 				30,
@@ -541,13 +543,10 @@
 				35,
 				36,
 				37,
-				104,
-				105,
-				106,
-				107,
-				108,
-				109,
-				110,
+				38,
+				39,
+				40,
+				41,
 				111,
 				112,
 				113,
@@ -559,24 +558,33 @@
 				119,
 				120,
 				121,
+				122,
 				123,
+				124,
+				125,
+				126,
 				127,
 				128,
-				147,
-				148,
-				150,
-				151,
-				152,
-				153,
-				154,
-				155,
+				129,
+				130,
+				132,
+				136,
+				137,
 				156,
-				158,
+				157,
+				159,
 				160,
+				161,
 				162,
+				163,
 				164,
-				166,
-				168
+				165,
+				167,
+				169,
+				171,
+				173,
+				175,
+				177
 			]
 		},
 		{
@@ -591,7 +599,6 @@
 				11,
 				13,
 				15,
-				16,
 				17,
 				18,
 				19,
@@ -600,13 +607,12 @@
 				22,
 				23,
 				24,
-				39,
-				40,
-				41,
+				25,
+				26,
+				27,
 				43,
 				44,
 				45,
-				46,
 				47,
 				48,
 				49,
@@ -627,10 +633,10 @@
 				64,
 				65,
 				66,
+				67,
 				68,
 				69,
 				70,
-				71,
 				72,
 				73,
 				74,
@@ -662,19 +668,17 @@
 				100,
 				101,
 				102,
-				122,
-				124,
-				125,
-				126,
-				129,
-				130,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
 				131,
-				132,
 				133,
 				134,
 				135,
-				136,
-				137,
 				138,
 				139,
 				140,
@@ -684,25 +688,34 @@
 				144,
 				145,
 				146,
+				147,
+				148,
 				149,
-				157,
-				159,
-				161,
-				163,
-				165,
-				167,
-				169
+				150,
+				151,
+				152,
+				153,
+				154,
+				155,
+				158,
+				166,
+				168,
+				170,
+				172,
+				174,
+				176,
+				178
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				38,
 				42,
-				67,
-				103,
-				170
+				46,
+				71,
+				110,
+				179
 			]
 		}
 	],
@@ -766,6 +779,17 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
+			"path" : "BSP/NRF24L01.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "BSP/NRF24L01.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
 			"path" : "BSP/my_fdcan.c",
 			"sourceGroupIndex" : 0
 		},
@@ -823,6 +847,11 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "Core/Inc/spi.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
 			"path" : "Core/Inc/stm32g4xx_hal_conf.h",
 			"sourceGroupIndex" : 1
 		},
@@ -869,6 +898,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "Core/Src/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Core/Src/spi.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -1157,6 +1192,16 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
 			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h",
 			"sourceGroupIndex" : 1
 		},
@@ -1223,6 +1268,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -1332,6 +1382,18 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c",
 			"sourceGroupIndex" : 0
 		},
 		{

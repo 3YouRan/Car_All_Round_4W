@@ -49,6 +49,7 @@
 
 #include "debug.h"
 
+#include "NRF24L01.h"
 #include "filter.h"
 //电机1位置和速度
 extern float Target_Speed_1;
@@ -134,9 +135,13 @@ extern int cnt_radar;
 
 extern LowPassFilter filter_x;
 extern LowPassFilter filter_y;
+extern LowPassFilter filter_angle;
+
 
 extern bool pid_spe_flag ;
 
 extern bool radar_mender_flag ;
 
+extern Control_Struct control_data;
+extern uint8_t Speed_PS_Rece_Buf[32]; // 声明全局数组
 #endif //RC_WORK1_ALL_H

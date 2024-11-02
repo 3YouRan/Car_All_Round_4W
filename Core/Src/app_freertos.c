@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "all.h"
 #include "data_fusion_task.h"
+#include "NRF24L01.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,6 +94,13 @@ const osThreadAttr_t Uart_Tx_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
   .stack_size = 128 * 4
 };
+/* Definitions for NRFTASK */
+osThreadId_t NRFTASKHandle;
+const osThreadAttr_t NRFTASK_attributes = {
+  .name = "NRFTASK",
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 512 * 4
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -105,6 +113,7 @@ void robo_mov(void *argument);
 void set_target(void *argument);
 void pid_task(void *argument);
 void uart_tx_task(void *argument);
+void nrftask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -153,6 +162,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of Uart_Tx */
   Uart_TxHandle = osThreadNew(uart_tx_task, NULL, &Uart_Tx_attributes);
+
+  /* creation of NRFTASK */
+  NRFTASKHandle = osThreadNew(nrftask, NULL, &NRFTASK_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -314,13 +326,46 @@ void uart_tx_task(void *argument)
      // printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
 //     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
 
- printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point_actual.x,radar_data.pos_x,Target_point_actual.y,radar_data.pos_y);
+ // printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point_actual.x,radar_data.pos_x,Target_point_actual.y,radar_data.pos_y);
      vTaskDelayUntil(&CurrentTime3,50);
 
 
      //printf("%.2f,%.2f,%.2f\n\r",locater.pos_x,locater.pos_y,locater.continuousAngle);
    }
   /* USER CODE END uart_tx_task */
+}
+
+/* USER CODE BEGIN Header_nrftask */
+/**
+* @brief Function implementing the NRFTASK thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_nrftask */
+void nrftask(void *argument)
+{
+  /* USER CODE BEGIN nrftask */
+  portTickType CurrentTime4;
+
+  /* Infinite loop */
+  for(;;)
+  {
+    CurrentTime4=xTaskGetTickCount();
+    static int flag=10;
+
+    if (NRF24L01_RxPacket(Speed_PS_Rece_Buf) == 0) {
+
+    }
+    control_data.L_X=Speed_PS_Rece_Buf[0];
+    control_data.L_Y=Speed_PS_Rece_Buf[1];
+    control_data.R_X=Speed_PS_Rece_Buf[2];
+    control_data.R_Y=Speed_PS_Rece_Buf[3];
+
+    printf("%d,%d,%d,%d\n\r",control_data.L_X,control_data.L_Y,control_data.R_X,control_data.R_Y);
+
+    vTaskDelayUntil(&CurrentTime4,10);
+  }
+  /* USER CODE END nrftask */
 }
 
 /* Private application code --------------------------------------------------*/

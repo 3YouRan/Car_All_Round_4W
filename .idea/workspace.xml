@@ -96,7 +96,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/RC2025",
+    "last_opened_file_path": "D:/Master_G4_basic",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -121,12 +121,12 @@
     </key>
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.OCD RC_All_Round">
-    <configuration name="RC_All_Round.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RC_All_Round" TARGET_NAME="RC_All_Round.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RC_All_Round" RUN_TARGET_NAME="RC_All_Round.elf">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="RC_All_Round.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RC_All_Round" TARGET_NAME="RC_All_Round.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RC_All_Round" RUN_TARGET_NAME="RC_All_Round.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -160,6 +160,7 @@
       <workItem from="1730372144256" duration="9634000" />
       <workItem from="1730455421060" duration="15145000" />
       <workItem from="1730511148734" duration="9882000" />
+      <workItem from="1730533996386" duration="5113000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />

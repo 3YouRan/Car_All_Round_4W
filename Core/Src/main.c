@@ -21,6 +21,7 @@
 #include "cmsis_os.h"
 #include "dma.h"
 #include "fdcan.h"
+#include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -29,7 +30,7 @@
 /* USER CODE BEGIN Includes */
 #include "all.h"
 #include "debug.h"
-
+#include "NRF24L01.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,6 +102,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_UART4_Init();
   MX_UART5_Init();
+  MX_SPI4_Init();
   /* USER CODE BEGIN 2 */
   // my_Init();
 
@@ -112,6 +114,15 @@ int main(void)
   HAL_Delay(200);
 
   my_Init();
+
+  while(NRF24L01_Check())//¼ì²â´íÎó£¬return 1
+  {
+    printf("nrf defete\r\n");
+    osDelay(100);
+  }
+  NRF24L01_RX_Mode();
+
+
 
   /* USER CODE END 2 */
 

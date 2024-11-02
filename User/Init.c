@@ -5,6 +5,7 @@
 #include "set_target.h"
 LowPassFilter filter_x;
 LowPassFilter filter_y;
+LowPassFilter filter_angle;
 void my_Init() {
 
 
@@ -28,4 +29,5 @@ void my_Init() {
 
     initializeFilter(&filter_x, 0.01);
     initializeFilter(&filter_y, 0.01);
+
 }
