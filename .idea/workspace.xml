@@ -161,7 +161,7 @@
       <workItem from="1730455421060" duration="15145000" />
       <workItem from="1730511148734" duration="9882000" />
       <workItem from="1730533996386" duration="5113000" />
-      <workItem from="1730548040754" duration="3423000" />
+      <workItem from="1730548040754" duration="4062000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />
@@ -219,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730517599904</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="加了遥控器">
+      <option name="closed" value="true" />
+      <created>1730551628678</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730551628678</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
