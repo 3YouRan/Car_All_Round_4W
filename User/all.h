@@ -48,6 +48,8 @@
 #include "robo.h"
 
 #include "debug.h"
+
+#include "filter.h"
 //电机1位置和速度
 extern float Target_Speed_1;
 extern float Target_Speed_actual_1;
@@ -128,5 +130,11 @@ extern uint8_t debugRvAll[LOCATER_DATA_SIZE];
 extern RaDar_Info_t radar_data;
 extern int cnt_radar;
 
+extern LowPassFilter filter_x;
+extern LowPassFilter filter_y;
+
+extern bool pid_spe_flag ;
+
+extern bool radar_mender_flag ;
 
 #endif //RC_WORK1_ALL_H

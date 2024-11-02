@@ -114,23 +114,30 @@ void Set_Target_UartIdleCallback(UART_HandleTypeDef *huart)//注意一个问题�
 
 
 uint8_t data_length_radar  =0;
-
+bool radar_mender_flag = false;
 void Set_Target_UartIdleCallback_radar(UART_HandleTypeDef *huart)//注意一个问题，调用的时候再写&huart5，否则在这个函数里就写&huart5打印会出问题
 {
     HAL_UART_DMAStop(huart);//停止本次DMA传输
 
     RaDar_Data_Cal((uint8_t *)&debugRvAll_radar,&radar_data);
-    if(cnt_radar <= 50)
+    if(cnt_radar <= 300&&radar_mender_flag==true)
     {
-        radar_data.pos_x_first = radar_data.pos_x;
-        radar_data.pos_y_first = radar_data.pos_y;
-        radar_data.total_angle_first  = radar_data.total_angle;
+        radar_data.pos_x_first += radar_data.pos_x;
+
+
+        radar_data.pos_y_first += radar_data.pos_y;
+//        radar_data.total_angle_first  = radar_data.total_angle;
         cnt_radar++;
     }
-    radar_data.pos_x =  0.5*(radar_data.pos_x - radar_data.pos_x_first)*sqrtf(2.0);
-    radar_data.pos_y =  0.5*(radar_data.pos_y - radar_data.pos_y_first)*sqrtf(2.0);
-
-
+    radar_data.pos_x_average = radar_data.pos_x_first/100.0f;
+    radar_data.pos_y_average = radar_data.pos_y_first/100.0f;
+    if(cnt_radar ==301)
+    {
+        radar_data.pos_x =  0.5*(radar_data.pos_x - radar_data.pos_x_average)*sqrtf(2.0);
+        radar_data.pos_y =  0.5*(radar_data.pos_y - radar_data.pos_y_average)*sqrtf(2.0);
+        radar_data.pos_x= filterValue(&filter_x,radar_data.pos_x);
+        radar_data.pos_y= filterValue(&filter_y,radar_data.pos_y);
+    }
 
 
     /*

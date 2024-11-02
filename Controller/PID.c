@@ -27,9 +27,9 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     pid_speed->maxOutput=16000;
     pid_speed->lastErr = 0;
     pid_speed->output = 0;
-    pid_speed->kp = 35.5;
-    pid_speed->ki = 0.05;
-    pid_speed->kd = 28.81;
+    pid_speed->kp = 20;// 35.5
+    pid_speed->ki = 0.012;//0.05
+    pid_speed->kd = 0;//28.81
     pid_speed->deadZone = 0.05;
 
     pid_position->err = 0;
@@ -65,7 +65,7 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_Angle_POS->kp = 0.049;
     PID_Angle_POS->ki = 0;
     PID_Angle_POS->kd = 5;
-    PID_Angle_POS->deadZone = 0.001;
+    PID_Angle_POS->deadZone = 1;
 
 
     //PID_Angle_SPD
@@ -86,10 +86,10 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_x->maxOutput = 600;
     PID_POINT_x->lastErr = 0;
     PID_POINT_x->output = 0;
-    PID_POINT_x->kp = 0.049;
-    PID_POINT_x->ki = 0.000001;
-    PID_POINT_x->kd = 0.29;
-    PID_POINT_x->deadZone = 0.5;
+    PID_POINT_x->kp = 0;
+    PID_POINT_x->ki = 0.00000;
+    PID_POINT_x->kd = 0;
+    PID_POINT_x->deadZone = 1;
 
 
     PID_POINT_y->err = 0;
@@ -101,7 +101,7 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_y->kp = 0.049;
     PID_POINT_y->ki = 0.0000014;
     PID_POINT_y->kd = 0.29;
-    PID_POINT_y->deadZone = 0.5;
+    PID_POINT_y->deadZone = 1;
 
 }
 

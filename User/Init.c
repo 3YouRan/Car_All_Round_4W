@@ -3,6 +3,8 @@
 //
 #include "all.h"
 #include "set_target.h"
+LowPassFilter filter_x;
+LowPassFilter filter_y;
 void my_Init() {
 
 
@@ -23,4 +25,7 @@ void my_Init() {
     HAL_TIM_Base_Start_IT(&htim3);//定时器3初始化
 
     Set_Target_UartInit();
+
+    initializeFilter(&filter_x, 0.01);
+    initializeFilter(&filter_y, 0.01);
 }

@@ -312,9 +312,10 @@ void uart_tx_task(void *argument)
     // printf("%.1f,%.1f,%.2f,%.2f,%.2f,%.2f\n\r",radar_data.pos_x,radar_data.pos_y,radar_data.total_angle,locater.pos_x,locater.pos_y,locater.continuousAngle);
     // printf("%d,%.2f\n\r",0,dis);
      // printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
-     printf("%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,Target_point.y,locater.pos_y);
-     // printf("%.1f,%.1f,%.2f\n\r",radar_data.pos_x,radar_data.pos_y,radar_data.total_angle);
-     vTaskDelayUntil(&CurrentTime3,20);
+//     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
+
+ printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_Speed_1,gm2006_1.rotor_speed / 36.0);
+     vTaskDelayUntil(&CurrentTime3,50);
 
 
      //printf("%.2f,%.2f,%.2f\n\r",locater.pos_x,locater.pos_y,locater.continuousAngle);

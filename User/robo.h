@@ -21,6 +21,9 @@ typedef struct
     float pos_x_first;
     float pos_y_first;
 
+    float pos_x_average;
+    float pos_y_average;
+
 
     float angle_last;
     float angle;

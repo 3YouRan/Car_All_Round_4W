@@ -58,7 +58,7 @@ float angle_now_4=0,angle_last_4=0,angle_total_4=0;
 
 bool Pos_flag=1;//是否开启位置控制
 
-
+int time2=0;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     /* USER CODE BEGIN Callback 0 */
@@ -70,38 +70,45 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     /* USER CODE BEGIN Callback 1 */
     if(htim->Instance==TIM3){
         time1++;
-
+        time2++;
         if(time1==5){
             // printf("1321313\r\n");
             // xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);//使用信号量唤醒PID任务
 
             time1=0;
-            //速度爬坡
-            //电机1速度爬坡
-            // if((Target_Speed_1 - Target_Speed_actual_1) > MIN_Spe_Increment){
-            //     Target_Speed_actual_1+=MIN_Spe_Increment;
-            // } else if((Target_Speed_1 - Target_Speed_actual_1) < -MIN_Spe_Increment){
-            //     Target_Speed_actual_1-=MIN_Spe_Increment;
-            // }
-            // //电机2速度爬坡
-            // if((Target_Speed_2 - Target_Speed_actual_2) > MIN_Spe_Increment){
-            //     Target_Speed_actual_2+=MIN_Spe_Increment;
-            // } else if((Target_Speed_2 - Target_Speed_actual_2) < -MIN_Spe_Increment){
-            //     Target_Speed_actual_2-=MIN_Spe_Increment;
-            // }
-            // //电机3速度爬坡
-            // if((Target_Speed_3 - Target_Speed_actual_3) > MIN_Spe_Increment){
-            //     Target_Speed_actual_3+=MIN_Spe_Increment;
-            // } else if((Target_Speed_3 - Target_Speed_actual_3) < -MIN_Spe_Increment){
-            //     Target_Speed_actual_3-=MIN_Spe_Increment;
-            // }
-            // //电机4速度爬坡
-            // if((Target_Speed_4 - Target_Speed_actual_4) > MIN_Spe_Increment){
-            //     Target_Speed_actual_4+=MIN_Spe_Increment;
-            // } else if((Target_Speed_4 - Target_Speed_actual_4) < -MIN_Spe_Increment){
-            //     Target_Speed_actual_4-=MIN_Spe_Increment;
-            // }
+//            速度爬坡
+//            电机1速度爬坡
+             if((Target_Speed_1 - Target_Speed_actual_1) > MIN_Spe_Increment){
+                 Target_Speed_actual_1+=MIN_Spe_Increment;
+             } else if((Target_Speed_1 - Target_Speed_actual_1) < -MIN_Spe_Increment){
+                 Target_Speed_actual_1-=MIN_Spe_Increment;
+             }
+             //电机2速度爬坡
+             if((Target_Speed_2 - Target_Speed_actual_2) > MIN_Spe_Increment){
+                 Target_Speed_actual_2+=MIN_Spe_Increment;
+             } else if((Target_Speed_2 - Target_Speed_actual_2) < -MIN_Spe_Increment){
+                 Target_Speed_actual_2-=MIN_Spe_Increment;
+             }
+             //电机3速度爬坡
+             if((Target_Speed_3 - Target_Speed_actual_3) > MIN_Spe_Increment){
+                 Target_Speed_actual_3+=MIN_Spe_Increment;
+             } else if((Target_Speed_3 - Target_Speed_actual_3) < -MIN_Spe_Increment){
+                 Target_Speed_actual_3-=MIN_Spe_Increment;
+             }
+             //电机4速度爬坡
+             if((Target_Speed_4 - Target_Speed_actual_4) > MIN_Spe_Increment){
+                 Target_Speed_actual_4+=MIN_Spe_Increment;
+             } else if((Target_Speed_4 - Target_Speed_actual_4) < -MIN_Spe_Increment){
+                 Target_Speed_actual_4-=MIN_Spe_Increment;
+             }
 //            xEventGroupSetBitsFromISR(g_EventGroupHandle,(1<<0),NULL);
+        }
+        if(time2==15000){
+            radar_mender_flag=true;
+        }
+        if(time2==10000){
+
+            pid_spe_flag=true;
         }
     }
     /* USER CODE END Callback 1 */
