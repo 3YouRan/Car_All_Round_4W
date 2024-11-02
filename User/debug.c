@@ -120,7 +120,8 @@ void Set_Target_UartIdleCallback_radar(UART_HandleTypeDef *huart)//注意一个�
     HAL_UART_DMAStop(huart);//停止本次DMA传输
 
     RaDar_Data_Cal((uint8_t *)&debugRvAll_radar,&radar_data);
-    if(cnt_radar <= 300&&radar_mender_flag==true)
+//    if(cnt_radar <= 300&&radar_mender_flag==true)
+    if(cnt_radar <= 300)
     {
         radar_data.pos_x_first += radar_data.pos_x;
 
@@ -129,8 +130,8 @@ void Set_Target_UartIdleCallback_radar(UART_HandleTypeDef *huart)//注意一个�
 //        radar_data.total_angle_first  = radar_data.total_angle;
         cnt_radar++;
     }
-    radar_data.pos_x_average = radar_data.pos_x_first/100.0f;
-    radar_data.pos_y_average = radar_data.pos_y_first/100.0f;
+    radar_data.pos_x_average = radar_data.pos_x_first/300.0f;
+    radar_data.pos_y_average = radar_data.pos_y_first/300.0f;
     if(cnt_radar ==301)
     {
         radar_data.pos_x =  0.5*(radar_data.pos_x - radar_data.pos_x_average)*sqrtf(2.0);

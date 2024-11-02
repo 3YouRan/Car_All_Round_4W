@@ -103,7 +103,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
              }
 //            xEventGroupSetBitsFromISR(g_EventGroupHandle,(1<<0),NULL);
         }
-        if(time2==15000){
+        if(time2==16000){
             radar_mender_flag=true;
         }
         if(time2==10000){
