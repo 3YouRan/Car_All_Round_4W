@@ -234,7 +234,7 @@ void robo_mov(void *argument)
 
     RunPoint_straight(Target_point);
 
-    vTaskDelayUntil(&CurrentTime2,5);
+    vTaskDelayUntil(&CurrentTime2,10);
 
   }
   /* USER CODE END robo_mov */
@@ -314,7 +314,7 @@ void uart_tx_task(void *argument)
      // printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
 //     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
 
- printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_Speed_1,gm2006_1.rotor_speed / 36.0);
+ printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point_actual.x,radar_data.pos_x,Target_point_actual.y,radar_data.pos_y);
      vTaskDelayUntil(&CurrentTime3,50);
 
 

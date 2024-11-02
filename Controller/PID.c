@@ -86,10 +86,10 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_x->maxOutput = 600;
     PID_POINT_x->lastErr = 0;
     PID_POINT_x->output = 0;
-    PID_POINT_x->kp = 0;
+    PID_POINT_x->kp = 0.025;
     PID_POINT_x->ki = 0.00000;
-    PID_POINT_x->kd = 0;
-    PID_POINT_x->deadZone = 1;
+    PID_POINT_x->kd = 5;
+    PID_POINT_x->deadZone = 5;
 
 
     PID_POINT_y->err = 0;
@@ -98,10 +98,10 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_y->maxOutput = 600;
     PID_POINT_y->lastErr = 0;
     PID_POINT_y->output = 0;
-    PID_POINT_y->kp = 0.049;
-    PID_POINT_y->ki = 0.0000014;
-    PID_POINT_y->kd = 0.29;
-    PID_POINT_y->deadZone = 1;
+    PID_POINT_y->kp = 0.025;
+    PID_POINT_y->ki = 0.00000;
+    PID_POINT_y->kd = 5;
+    PID_POINT_y->deadZone = 5;
 
 }
 
@@ -148,9 +148,9 @@ float Inc_PID_Realize(PID* pid, float target, float feedback)//一次PID计算
  * ****************************************/
 float FW_PID_Realize(PID* pid, float target, float feedback)//一次PID计算
 {
+    pid->err = target - feedback;
 
     if(pid->err < pid->deadZone && pid->err > -pid->deadZone) pid->err = 0;//pid死区
-    pid->err = target - feedback;
     pid->integral += pid->err;
 
     if(pid->ki * pid->integral < -pid->maxIntegral) pid->integral = -pid->maxIntegral / pid->ki;//积分限幅
@@ -174,9 +174,9 @@ float FW_PID_Realize(PID* pid, float target, float feedback)//一次PID计算
  * ****************************************/
 float FW_PID_Realize_without_brake(PID* pid, float target, float feedback)//一次PID计算
 {
+    pid->err = target - feedback;
 
     if(pid->err < pid->deadZone && pid->err > -pid->deadZone) pid->err = 0;//pid死区
-    pid->err = target - feedback;
     pid->integral += pid->err;
 
     if(pid->ki * pid->integral < -pid->maxIntegral) pid->integral = -pid->maxIntegral / pid->ki;//积分限幅

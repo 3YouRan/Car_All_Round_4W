@@ -124,6 +124,8 @@ extern float angle_target ;
 void Kinematic_solution(float v_x,float v_y,float w);
 
 extern pointStruct Target_point;
+extern pointStruct Target_point_actual;
+
 
 extern uint8_t debugRvAll[LOCATER_DATA_SIZE];
 

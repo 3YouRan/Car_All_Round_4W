@@ -2,6 +2,7 @@
 #include "all.h"
 
 pointStruct Target_point;
+pointStruct Target_point_actual;
 
 void set_runpoint_target(float x,float y,float angle)
 {

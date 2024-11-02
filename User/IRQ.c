@@ -59,6 +59,8 @@ float angle_now_4=0,angle_last_4=0,angle_total_4=0;
 bool Pos_flag=1;//是否开启位置控制
 
 int time2=0;
+int time3=0;
+int MIN_Pos_Increment=5;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     /* USER CODE BEGIN Callback 0 */
@@ -68,9 +70,24 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         HAL_IncTick();
     }
     /* USER CODE BEGIN Callback 1 */
+
     if(htim->Instance==TIM3){
         time1++;
         time2++;
+        time3++;
+        if(time3==100){
+            time3=0;
+            if((Target_point.x - Target_point_actual.x) > MIN_Pos_Increment){
+                Target_point_actual.x+=MIN_Pos_Increment;
+            } else if((Target_point.x - Target_point_actual.x) < -MIN_Pos_Increment){
+                Target_point_actual.x-=MIN_Pos_Increment;
+            }
+            if((Target_point.y - Target_point_actual.y) > MIN_Pos_Increment){
+                Target_point_actual.y+=MIN_Pos_Increment;
+            } else if((Target_point.y - Target_point_actual.y) < -MIN_Pos_Increment){
+                Target_point_actual.y-=MIN_Pos_Increment;
+            }
+        }
         if(time1==5){
             // printf("1321313\r\n");
             // xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);//使用信号量唤醒PID任务
