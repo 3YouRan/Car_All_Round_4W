@@ -164,7 +164,7 @@ void MX_FREERTOS_Init(void) {
   Uart_TxHandle = osThreadNew(uart_tx_task, NULL, &Uart_Tx_attributes);
 
   /* creation of NRFTASK */
-  NRFTASKHandle = osThreadNew(nrftask, NULL, &NRFTASK_attributes);
+//  NRFTASKHandle = osThreadNew(nrftask, NULL, &NRFTASK_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -286,7 +286,7 @@ void pid_task(void *argument)
    for(;;)
    {
      // xSemaphoreTake(g_SemaphoreHandle_For_PID, portMAX_DELAY);
-
+//     printf("pid_task\n\r");
      CurrentTime_PID=xTaskGetTickCount();
 
      //速度�?
@@ -326,7 +326,7 @@ void uart_tx_task(void *argument)
      // printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
 //     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
 
- // printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point_actual.x,radar_data.pos_x,Target_point_actual.y,radar_data.pos_y);
+    printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_point.y,-radar_data.pos_y);
      vTaskDelayUntil(&CurrentTime3,50);
 
 

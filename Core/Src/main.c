@@ -115,12 +115,12 @@ int main(void)
 
   my_Init();
 
-  while(NRF24L01_Check())//¼ì²â´íÎó£¬return 1
-  {
-    printf("nrf defete\r\n");
-  }
-
-  NRF24L01_RX_Mode();
+//  while(NRF24L01_Check())//¼ì²â´íÎó£¬return 1
+//  {
+//    printf("nrf defete\r\n");
+//  }
+//
+//  NRF24L01_RX_Mode();
 
 
   /* USER CODE END 2 */

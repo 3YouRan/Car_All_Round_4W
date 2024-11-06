@@ -69,6 +69,7 @@ void Set_Target_UartIrqHandler(UART_HandleTypeDef *huart)
 {
     if(huart->Instance == huart2.Instance)//判断是否是串口2
     {
+
         if(RESET != __HAL_UART_GET_FLAG(huart, UART_FLAG_IDLE))//判断是否是空闲中断
         {
             __HAL_UART_CLEAR_IDLEFLAG(huart);//清楚空闲中断标志，防止会一直不断进入中断
@@ -78,6 +79,7 @@ void Set_Target_UartIrqHandler(UART_HandleTypeDef *huart)
 
     if(huart->Instance == huart5.Instance)//判断是否是串口1
     {
+//        printf("uart\n\r");
         if(RESET != __HAL_UART_GET_FLAG(huart, UART_FLAG_IDLE))//判断是否是空闲中断
         {
             __HAL_UART_CLEAR_IDLEFLAG(huart);//清楚空闲中断标志，防止会一直不断进入中断

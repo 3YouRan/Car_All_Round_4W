@@ -83,7 +83,7 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_x->err = 0;
     PID_POINT_x->integral = 0;
     PID_POINT_x->maxIntegral = 600;
-    PID_POINT_x->maxOutput = 600;
+    PID_POINT_x->maxOutput = 100;
     PID_POINT_x->lastErr = 0;
     PID_POINT_x->output = 0;
     PID_POINT_x->kp = 0.025;
@@ -95,13 +95,13 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_y->err = 0;
     PID_POINT_y->integral = 0;
     PID_POINT_y->maxIntegral = 600;
-    PID_POINT_y->maxOutput = 600;
+    PID_POINT_y->maxOutput = 100;
     PID_POINT_y->lastErr = 0;
     PID_POINT_y->output = 0;
-    PID_POINT_y->kp = 0.025;
+    PID_POINT_y->kp = 0.03;//使用雷达调的结果
     PID_POINT_y->ki = 0.00000;
-    PID_POINT_y->kd = 5;
-    PID_POINT_y->deadZone = 5;
+    PID_POINT_y->kd = 2;
+    PID_POINT_y->deadZone = 1;
 
 }
 
