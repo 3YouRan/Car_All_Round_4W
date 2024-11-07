@@ -92,7 +92,7 @@ osThreadId_t Uart_TxHandle;
 const osThreadAttr_t Uart_Tx_attributes = {
   .name = "Uart_Tx",
   .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 128 * 4
+  .stack_size = 512 * 4
 };
 /* Definitions for NRFTASK */
 osThreadId_t NRFTASKHandle;
@@ -326,8 +326,8 @@ void uart_tx_task(void *argument)
      // printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
 //     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
 
-    printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_point.y,-radar_data.pos_y);
-     vTaskDelayUntil(&CurrentTime3,50);
+    printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_Speed_1,gm2006_1.rotor_speed / 36.0);
+     vTaskDelayUntil(&CurrentTime3,20);
 
 
      //printf("%.2f,%.2f,%.2f\n\r",locater.pos_x,locater.pos_y,locater.continuousAngle);
