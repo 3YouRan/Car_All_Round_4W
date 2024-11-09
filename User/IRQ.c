@@ -1,14 +1,14 @@
 ////
-//// Created by 陈瑜 on 24-9-18.
+//// Created by ??? on 24-9-18.
 ////
 
 #include "all.h"
 #include "debug.h"
 #include "radar.h"
 /*
- * @brief UART接收数据回调函数
+ * @brief UART??????????????
  *
- * @param huart UART句柄
+ * @param huart UART???
  * @return None
  */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -17,50 +17,50 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     if(huart==&huart3)
     {
 
-        RxLine++;                      //姣忔帴鏀跺埌涓?涓暟鎹紝杩涘叆鍥炶皟鏁版嵁闀垮害鍔?1
-        DataBuff[RxLine-1]=RxBuffer[0];  //鎶婃瘡娆℃帴鏀跺埌鐨勬暟鎹繚瀛樺埌缂撳瓨鏁扮粍
-        if(RxBuffer[0]=='!')           //鎺ユ敹缁撴潫鏍囧織浣?
+        RxLine++;                      //每接收到??个数据，进入回调数据长度??1
+        DataBuff[RxLine-1]=RxBuffer[0];  //把每次接收到的数据保存到缓存数组
+        if(RxBuffer[0]=='!')           //接收结束标志??
         {
             printf("RXLen=%d\r\n",RxLine);
             for(int i=0;i<RxLine;i++)
                 printf("UART DataBuff[%d] = %c\r\n",i,DataBuff[i]);
 //            xEventGroupSetBitsFromISR(g_xEventGroup_Uart_Rx,(1<<0),NULL);
-//            xSemaphoreGiveFromISR(g_SemaphoreHandle_For_Uart_RX, NULL);//使用信号量唤醒UART_Rx任务
+//            xSemaphoreGiveFromISR(g_SemaphoreHandle_For_Uart_RX, NULL);//????????????UART_Rx????
 
-            USART_PID_Adjust(1);//鏁版嵁瑙ｆ瀽鍜屽弬鏁拌祴鍊煎嚱鏁?
+            USART_PID_Adjust(1);//数据解析和参数赋值函??
 
 
-            memset(DataBuff,0,sizeof(DataBuff));  //娓呯┖缂撳瓨鏁扮粍
-            RxLine=0;  //娓呯┖鎺ユ敹闀垮害
+            memset(DataBuff,0,sizeof(DataBuff));  //清空缓存数组
+            RxLine=0;  //清空接收长度
 
 
         }
         RxBuffer[0]=0;
-        HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuffer, 1);//姣忔帴鏀朵竴涓暟鎹紝灏辨墦寮?涓?娆′覆鍙ｄ腑鏂帴鏀?
+        HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuffer, 1);//每接收一个数据，就打????次串口中断接??
         __HAL_UART_ENABLE_IT(&huart3,UART_IT_RXNE);
     }
 }
 
 
 /**
-  * @brief 非阻塞模式下的 Period elapsed 回调
-  * @note 当 TIM4 中断发生时，在
-  * HAL_TIM_IRQHandler（） 的它直接调用 HAL_IncTick（） 以递增
-  * 用作应用程序时基的全局变量 “uwTick”。
-  * @param htim ： TIM 句柄
-  * @retval 无
+  * @brief ??????????? Period elapsed ???
+  * @note ?? TIM4 ?ж?????????
+  * HAL_TIM_IRQHandler???? ?????????? HAL_IncTick???? ?????
+  * ??????ó?????????????? ??uwTick????
+  * @param htim ?? TIM ???
+  * @retval ??
   */
 uint8_t time1=0;
-float angle_now_1=0,angle_last_1=0,angle_total_1=0;//电机位置统计
+float angle_now_1=0,angle_last_1=0,angle_total_1=0;//???λ?????
 float angle_now_2=0,angle_last_2=0,angle_total_2=0;
-float angle_now_3=0,angle_last_3=0,angle_total_3=0;//电机位置统计
+float angle_now_3=0,angle_last_3=0,angle_total_3=0;//???λ?????
 float angle_now_4=0,angle_last_4=0,angle_total_4=0;
 
-bool Pos_flag=1;//是否开启位置控制
+bool Pos_flag=1;//?????λ?????
 
 int time2=0;
 int time3=0;
-int MIN_Pos_Increment=5;
+float MIN_Pos_Increment=0.5;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     /* USER CODE BEGIN Callback 0 */
@@ -75,7 +75,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         time1++;
         time2++;
         time3++;
-        if(time3==100){
+        if(time3==10){
             time3=0;
             if((Target_point.x - Target_point_actual.x) > MIN_Pos_Increment){
                 Target_point_actual.x+=MIN_Pos_Increment;
@@ -90,29 +90,29 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         }
         if(time1==5){
             // printf("1321313\r\n");
-            // xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);//使用信号量唤醒PID任务
+            // xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);//????????????PID????
 
             time1=0;
-//            速度爬坡
-//            电机1速度爬坡
+//            ???????
+//            ???1???????
              if((Target_Speed_1 - Target_Speed_actual_1) > MIN_Spe_Increment){
                  Target_Speed_actual_1+=MIN_Spe_Increment;
              } else if((Target_Speed_1 - Target_Speed_actual_1) < -MIN_Spe_Increment){
                  Target_Speed_actual_1-=MIN_Spe_Increment;
              }
-             //电机2速度爬坡
+             //???2???????
              if((Target_Speed_2 - Target_Speed_actual_2) > MIN_Spe_Increment){
                  Target_Speed_actual_2+=MIN_Spe_Increment;
              } else if((Target_Speed_2 - Target_Speed_actual_2) < -MIN_Spe_Increment){
                  Target_Speed_actual_2-=MIN_Spe_Increment;
              }
-             //电机3速度爬坡
+             //???3???????
              if((Target_Speed_3 - Target_Speed_actual_3) > MIN_Spe_Increment){
                  Target_Speed_actual_3+=MIN_Spe_Increment;
              } else if((Target_Speed_3 - Target_Speed_actual_3) < -MIN_Spe_Increment){
                  Target_Speed_actual_3-=MIN_Spe_Increment;
              }
-             //电机4速度爬坡
+             //???4???????
              if((Target_Speed_4 - Target_Speed_actual_4) > MIN_Spe_Increment){
                  Target_Speed_actual_4+=MIN_Spe_Increment;
              } else if((Target_Speed_4 - Target_Speed_actual_4) < -MIN_Spe_Increment){
@@ -123,7 +123,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         if(time2==16000){
             radar_mender_flag=true;
         }
-        if(time2==15000){
+        if(time2==10000){
 
             pid_spe_flag=true;
         }
@@ -132,10 +132,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 }
 
 /*
- * @brief FDCAN接收数据回调函数 标准帧进入接收FIFO0，扩展帧进入接收FIFO1
+ * @brief FDCAN?????????????? ???????????FIFO0?????????????FIFO1
  *
- * @param hfdcan FDCAN句柄
- * @param RxFifo0ITs/RxFifo1ITs 接收FIFO0/FIFO1中断次数
+ * @param hfdcan FDCAN???
+ * @param RxFifo0ITs/RxFifo1ITs ????FIFO0/FIFO1?ж????
  *
  * @return None
  */
@@ -174,10 +174,10 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
     }
 }
 /*
- * @brief FDCAN接收数据回调函数 标准帧进入接收FIFO0，扩展帧进入接收FIFO1
+ * @brief FDCAN?????????????? ???????????FIFO0?????????????FIFO1
  *
- * @param hfdcan FDCAN句柄
- * @param RxFifo0ITs/RxFifo1ITs 接收FIFO0/FIFO1中断次数
+ * @param hfdcan FDCAN???
+ * @param RxFifo0ITs/RxFifo1ITs ????FIFO0/FIFO1?ж????
  *
  * @return None
  */

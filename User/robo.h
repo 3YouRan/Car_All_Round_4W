@@ -31,6 +31,8 @@ typedef struct
     int circleNum;
     float total_angle;
     float total_angle_first;
+    float total_angle_average;
+
 
 
 }RaDar_Info_t;

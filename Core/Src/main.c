@@ -31,6 +31,7 @@
 #include "all.h"
 #include "debug.h"
 #include "NRF24L01.h"
+#include "PIDC.H"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -114,7 +115,7 @@ int main(void)
   HAL_Delay(200);
 
   my_Init();
-
+  PIDC_initialize();
 //  while(NRF24L01_Check())//¼ì²â´íÎó£¬return 1
 //  {
 //    printf("nrf defete\r\n");

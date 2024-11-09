@@ -92,7 +92,7 @@ osThreadId_t Uart_TxHandle;
 const osThreadAttr_t Uart_Tx_attributes = {
   .name = "Uart_Tx",
   .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 512 * 4
+  .stack_size = 128 * 4
 };
 /* Definitions for NRFTASK */
 osThreadId_t NRFTASKHandle;
@@ -164,7 +164,7 @@ void MX_FREERTOS_Init(void) {
   Uart_TxHandle = osThreadNew(uart_tx_task, NULL, &Uart_Tx_attributes);
 
   /* creation of NRFTASK */
-//  NRFTASKHandle = osThreadNew(nrftask, NULL, &NRFTASK_attributes);
+  // NRFTASKHandle = osThreadNew(nrftask, NULL, &NRFTASK_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -326,8 +326,12 @@ void uart_tx_task(void *argument)
      // printf("%.2f,%.2f\n\r",Target_point.angle,locater.continuousAngle);
 //     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
 
-    printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_Speed_1,gm2006_1.rotor_speed / 36.0);
-     vTaskDelayUntil(&CurrentTime3,20);
+    // printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_Speed_1,gm2006_1.rotor_speed / 36.0);
+     printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.y,radar_data.pos_y,Target_point.x,radar_data.pos_x,Target_point_actual.y,PID_POINT_x.output,radar_data.total_angle);
+
+
+     // printf("gasgjh:%d,%.2f,%.2f\n\r",1,Target_point.angle,radar_data.total_angle);
+     vTaskDelayUntil(&CurrentTime3,50);
 
 
      //printf("%.2f,%.2f,%.2f\n\r",locater.pos_x,locater.pos_y,locater.continuousAngle);

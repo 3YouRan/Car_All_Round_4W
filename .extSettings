@@ -1,0 +1,6 @@
+[ProjectFiles]
+HeaderPath=D:\Car_All_Round_4W\Drivers\CMSIS\Core\Include;D:\Car_All_Round_4W\Drivers\CMSIS\DSP\Include;D:\Car_All_Round_4W\PIDC\Inc;D:\matlab\simulink\include;
+[Groups]
+MATLAB=D:\Car_All_Round_4W\PIDC\Src\PIDC.c;D:\Car_All_Round_4W\PIDC\Src\rtGetInf.c;D:\Car_All_Round_4W\PIDC\Src\rtGetNaN.c;D:\Car_All_Round_4W\PIDC\Src\rt_nonfinite.c;
+[Others]
+Define=MEM_UNIT_BYTES;ARM_MATH_CM4;MemUnit_T:uint8_T;MATLAB_PROJECT;

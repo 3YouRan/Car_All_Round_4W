@@ -126,20 +126,20 @@ void Set_Target_UartIdleCallback_radar(UART_HandleTypeDef *huart)//注意一个�
     if(cnt_radar <= 300)
     {
         radar_data.pos_x_first += radar_data.pos_x;
-
-
         radar_data.pos_y_first += radar_data.pos_y;
-//        radar_data.total_angle_first  = radar_data.total_angle;
+        radar_data.total_angle_first  = radar_data.total_angle;
         cnt_radar++;
     }
     radar_data.pos_x_average = radar_data.pos_x_first/300.0f;
     radar_data.pos_y_average = radar_data.pos_y_first/300.0f;
+    radar_data.total_angle_average = radar_data.total_angle_first/300.0f;
     if(cnt_radar ==301)
     {
-        radar_data.pos_x =  0.5*(radar_data.pos_x - radar_data.pos_x_average)*sqrtf(2.0);
-        radar_data.pos_y =  0.5*(radar_data.pos_y - radar_data.pos_y_average)*sqrtf(2.0);
+        radar_data.pos_x =  (radar_data.pos_x - radar_data.pos_x_average);
+        radar_data.pos_y =  (radar_data.pos_y - radar_data.pos_y_average);
+        // radar_data.total_angle = radar_data.total_angle-radar_data.total_angle_average;
         radar_data.pos_x= filterValue(&filter_x,radar_data.pos_x);
-        // radar_data.pos_y= filterValue(&filter_y,radar_data.pos_y);
+        radar_data.pos_y= filterValue(&filter_y,radar_data.pos_y);
         // radar_data.total_angle = filterValue(&filter_angle,radar_data.total_angle);
     }
 

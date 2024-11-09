@@ -17,7 +17,7 @@ void RaDar_Data_Cal(uint8_t *data,RaDar_Info_t *loc_data)
         loc_data->angle_last = loc_data->angle;
         //雷达坐标
         loc_data->pos_x = -(float)(data[1] | data[2] << 8 | data[3] << 16 | data[4] << 24) / 10.0f ;
-        loc_data->pos_y = (float)(data[5] | data[6] << 8 | data[7] << 16 | data[8] << 24) / 10.0f  ;
+        loc_data->pos_y = -(float)(data[5] | data[6] << 8 | data[7] << 16 | data[8] << 24) / 10.0f  ;
         loc_data->angle = -((float)(data[9] | data[10] << 8 | data[11] << 16 | data[12] << 24) * 180.0f / pi / 1000.0f ) ;//角度转为度
 
 

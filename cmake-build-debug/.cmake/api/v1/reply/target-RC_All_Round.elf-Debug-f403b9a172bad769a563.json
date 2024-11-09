@@ -179,6 +179,18 @@
 				},
 				{
 					"backtrace" : 12,
+					"define" : "MATLAB_PROJECT"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "MEM_UNIT_BYTES"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "MemUnit_T=uint8_T"
+				},
+				{
+					"backtrace" : 12,
 					"define" : "STM32G474xx"
 				},
 				{
@@ -222,6 +234,22 @@
 				},
 				{
 					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Core/Include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/DSP/Include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/PIDC/Inc"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/matlab/simulink/include"
+				},
+				{
+					"backtrace" : 13,
 					"path" : "D:/Car_All_Round_4W/User"
 				},
 				{
@@ -235,6 +263,10 @@
 				{
 					"backtrace" : 13,
 					"path" : "D:/Car_All_Round_4W/Controller"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/PIDC_stm32"
 				}
 			],
 			"language" : "C",
@@ -301,14 +333,18 @@
 				161,
 				162,
 				163,
-				164,
 				165,
-				167,
-				169,
-				171,
-				173,
-				175,
-				177
+				219,
+				221,
+				223,
+				229,
+				230,
+				232,
+				234,
+				236,
+				238,
+				240,
+				242
 			]
 		},
 		{
@@ -390,6 +426,18 @@
 				},
 				{
 					"backtrace" : 12,
+					"define" : "MATLAB_PROJECT"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "MEM_UNIT_BYTES"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "MemUnit_T=uint8_T"
+				},
+				{
+					"backtrace" : 12,
 					"define" : "STM32G474xx"
 				},
 				{
@@ -433,6 +481,22 @@
 				},
 				{
 					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Core/Include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/DSP/Include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/PIDC/Inc"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/matlab/simulink/include"
+				},
+				{
+					"backtrace" : 13,
 					"path" : "D:/Car_All_Round_4W/User"
 				},
 				{
@@ -446,6 +510,10 @@
 				{
 					"backtrace" : 13,
 					"path" : "D:/Car_All_Round_4W/Controller"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "D:/Car_All_Round_4W/PIDC_stm32"
 				}
 			],
 			"language" : "ASM",
@@ -579,12 +647,17 @@
 				163,
 				164,
 				165,
-				167,
-				169,
-				171,
-				173,
-				175,
-				177
+				219,
+				221,
+				223,
+				229,
+				230,
+				232,
+				234,
+				236,
+				238,
+				240,
+				242
 			]
 		},
 		{
@@ -699,12 +772,21 @@
 				155,
 				158,
 				166,
-				168,
+				169,
 				170,
 				172,
-				174,
-				176,
-				178
+				173,
+				220,
+				222,
+				224,
+				226,
+				231,
+				233,
+				235,
+				237,
+				239,
+				241,
+				243
 			]
 		},
 		{
@@ -715,7 +797,64 @@
 				46,
 				71,
 				110,
-				179
+				167,
+				168,
+				171,
+				174,
+				175,
+				176,
+				177,
+				178,
+				179,
+				180,
+				181,
+				182,
+				183,
+				184,
+				185,
+				186,
+				187,
+				188,
+				189,
+				190,
+				191,
+				192,
+				193,
+				194,
+				195,
+				196,
+				198,
+				199,
+				200,
+				201,
+				202,
+				203,
+				204,
+				205,
+				206,
+				207,
+				208,
+				209,
+				210,
+				211,
+				212,
+				213,
+				214,
+				215,
+				216,
+				217,
+				218,
+				225,
+				227,
+				228,
+				244
+			]
+		},
+		{
+			"name" : "Resources",
+			"sourceIndexes" : 
+			[
+				197
 			]
 		}
 	],
@@ -1594,6 +1733,335 @@
 			"compileGroupIndex" : 0,
 			"path" : "Middlewares/Third_Party/FreeRTOS/Source/timers.c",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/PIDC.bat",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PIDC_stm32/PIDC.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/PIDC.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/PIDC.mk",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/PIDC.out",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/PIDC_External_Functions.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/PIDC_private.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/PIDC_ref.rsp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/PIDC_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/STM32_Config.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/buildInfo.mat",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/build_exception.mat",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/codeInfo.mat",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/codedescriptor.dmr",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/defines.txt",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_External_Functions_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_c.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_codegen_rpt.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_coderassumptions.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_contents.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_interface.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_metrics.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_private_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_reducedblocks.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_replacements.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_subsystems.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_survey.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_trace.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/PIDC_types_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/STM32_Config_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/css/coder_app.css",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/define.js",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/hilite_warning.png",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/inspect.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/js/coder_app.js",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/main_c.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/nav.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/navToolbar.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtGetInf_c.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtGetInf_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtGetNaN_c.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtGetNaN_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rt_nonfinite_c.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rt_nonfinite_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtwhilite.js",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtwmsg.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtwreport.css",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtwreport_utils.js",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtwshrink.js",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/rtwtypes_h.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/search.js",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/spinner.gif",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/html/stm32xxxx_it_c.html",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/modelsources.txt",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PIDC_stm32/rtGetInf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/rtGetInf.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PIDC_stm32/rtGetNaN.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/rtGetNaN.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "PIDC_stm32/rt_nonfinite.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/rt_nonfinite.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/rtw_proj.tmw",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/rtwtypes.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/rtwtypeschksum.mat",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "PIDC_stm32/tmwinternal/simulink_cache.xml",
+			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 1,

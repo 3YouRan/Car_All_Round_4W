@@ -28,6 +28,6 @@ void my_Init() {
     Set_Target_UartInit();
 
     initializeFilter(&filter_x, 0.085);
-    initializeFilter(&filter_y, 0.01);
+    initializeFilter(&filter_y, 0.085);
 
 }

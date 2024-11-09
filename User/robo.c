@@ -36,8 +36,10 @@ void RunPoint_straight(pointStruct targetPoint)
     dis = sqrt(err_x * err_x + err_y * err_y);
     //计算速度pid输
     if(pid_spe_flag ==true) {
-         v_x = FW_PID_Realize_without_brake(&PID_POINT_x,Target_point.x, radar_data.pos_x );
-         // v_y = FW_PID_Realize_without_brake(&PID_POINT_y,Target_point.y,-radar_data.pos_y );
+        omega = FW_PID_Realize_without_brake(&PID_Angle_POS,targetPoint.angle,radar_data.total_angle);//位置环
+
+         v_x = FW_PID_Realize_without_brake(&PID_POINT_x,Target_point_actual.x, radar_data.pos_x );
+         v_y = FW_PID_Realize_without_brake(&PID_POINT_y,Target_point_actual.y,radar_data.pos_y );
     }
 // v_x = 0;
 //    v_y = 0;
@@ -46,7 +48,7 @@ void RunPoint_straight(pointStruct targetPoint)
 
     //FW_PID_Realize(&PID_Angle_POS, targetPoint.angle,Robot_Angle.total_angle);//雷达数据
 
-//    omega = FW_PID_Realize_without_brake(&PID_Angle_POS,targetPoint.angle,radar_data.total_angle);//位置环
+    // omega = FW_PID_Realize_without_brake(&PID_Angle_POS,targetPoint.angle,radar_data.total_angle);//位置环
 
     // omega = FW_PID_Realize(&PID_Angle_SPD,PID_Angle_POS.output,locater.angular_speed);//数据调整
 
