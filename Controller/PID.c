@@ -99,7 +99,7 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_y->maxOutput = 30;
     PID_POINT_y->lastErr = 0;
     PID_POINT_y->output = 0;
-    PID_POINT_y->kp = 0.00;//使用雷达调的结果
+    PID_POINT_y->kp = 0.0048;//使用雷达调的结果
     PID_POINT_y->ki = 0.00000;
     PID_POINT_y->kd = 0;
     PID_POINT_y->deadZone = 1;

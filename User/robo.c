@@ -38,8 +38,8 @@ void RunPoint_straight(pointStruct targetPoint)
     if(pid_spe_flag ==true) {
         omega = FW_PID_Realize_without_brake(&PID_Angle_POS,targetPoint.angle,radar_data.total_angle);//位置环
 
-         v_x = FW_PID_Realize_without_brake(&PID_POINT_x,Target_point_actual.x, radar_data.pos_x );
-         v_y = FW_PID_Realize_without_brake(&PID_POINT_y,Target_point_actual.y,radar_data.pos_y );
+         v_x = FW_PID_Realize_without_brake(&PID_POINT_x,Target_point_actual.x, radar_data.pos_x);
+         v_y = FW_PID_Realize_without_brake(&PID_POINT_y,Target_point_actual.y,radar_data.pos_y);
     }
 // v_x = 0;
 //    v_y = 0;
@@ -57,10 +57,6 @@ void RunPoint_straight(pointStruct targetPoint)
     xSpeed = v * cos(atan2f(err_y, err_x));
     ySpeed = v * sin(atan2f(err_y, err_x));
 
-
     Kinematic_solution(v_x,v_y,omega);
      // Kinematic_solution(xSpeed,ySpeed,omega);
-
-
-
 }
