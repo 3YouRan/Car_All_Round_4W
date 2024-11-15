@@ -134,6 +134,7 @@
       <workItem from="1730996220000" duration="1680000" />
       <workItem from="1731034891011" duration="17059000" />
       <workItem from="1731415609896" duration="1479000" />
+      <workItem from="1731591511675" duration="6475000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />
@@ -207,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730995866505</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="我们之前那个解算把他们的y当成了我们的x去解算的，已修改，可以走斜线了">
+      <option name="closed" value="true" />
+      <created>1731597023910</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731597023910</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +258,7 @@
     <MESSAGE value="使用雷达进行的初步调试" />
     <MESSAGE value="加了遥控器" />
     <MESSAGE value="解决了雷达数据问题，低通滤波器受前一次影响太大，基本不更新，pid位置环的近距离参数效果很好" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决了雷达数据问题，低通滤波器受前一次影响太大，基本不更新，pid位置环的近距离参数效果很好" />
+    <MESSAGE value="我们之前那个解算把他们的y当成了我们的x去解算的，已修改，可以走斜线了" />
+    <option name="LAST_COMMIT_MESSAGE" value="我们之前那个解算把他们的y当成了我们的x去解算的，已修改，可以走斜线了" />
   </component>
 </project>

@@ -29,7 +29,7 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     pid_speed->lastErr = 0;
     pid_speed->output = 0;
     pid_speed->kp = 100;// 50
-    pid_speed->ki = 0.012;//0.05
+    pid_speed->ki = 0.063;//0.05
     pid_speed->kd = 0;//28.81
     pid_speed->deadZone = 0.05;
 
@@ -63,9 +63,9 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_Angle_POS->maxOutput = 600;
     PID_Angle_POS->lastErr = 0;
     PID_Angle_POS->output = 0;
-    PID_Angle_POS->kp = 0.08898;//0.08418
+    PID_Angle_POS->kp = 0.09898;//0.08418
     PID_Angle_POS->ki = 0;
-    PID_Angle_POS->kd = 1;
+    PID_Angle_POS->kd = 0;
     PID_Angle_POS->deadZone = 0.5;
 
 

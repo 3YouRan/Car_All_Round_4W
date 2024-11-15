@@ -29,5 +29,6 @@ void my_Init() {
 
     initializeFilter(&filter_x, 0.085);
     initializeFilter(&filter_y, 0.085);
+    initializeFilter(&filter_angle, 0.085);
 
 }

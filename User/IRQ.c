@@ -61,6 +61,9 @@ bool Pos_flag=1;//?????¦Ë?????
 int time2=0;
 int time3=0;
 float MIN_Pos_Increment=0.5;
+float MIN_Angle_Increment=2;
+
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     /* USER CODE BEGIN Callback 0 */
@@ -87,6 +90,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
             } else if((Target_point.y - Target_point_actual.y) < -MIN_Pos_Increment){
                 Target_point_actual.y-=MIN_Pos_Increment;
             }
+            if((Target_point.angle - Target_point_actual.angle) > MIN_Angle_Increment){
+                Target_point_actual.angle+=MIN_Angle_Increment;
+            } else if((Target_point.angle - Target_point_actual.angle) < -MIN_Angle_Increment){
+                Target_point_actual.angle-=MIN_Angle_Increment;
+            }
+
+
         }
         if(time1==5){
             // printf("1321313\r\n");
