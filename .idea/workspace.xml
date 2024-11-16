@@ -37,8 +37,10 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/math.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/reent.h" root0="FORCE_HIGHLIGHTING" />
@@ -135,6 +137,7 @@
       <workItem from="1731034891011" duration="17059000" />
       <workItem from="1731415609896" duration="1479000" />
       <workItem from="1731591511675" duration="6475000" />
+      <workItem from="1731724218629" duration="26218000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />
@@ -216,7 +219,39 @@
       <option name="project" value="LOCAL" />
       <updated>1731597023910</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="我们之前那个解算把他们的y当成了我们的x去解算的，已修改，可以走斜线了，但是加上角度环会影响到x，y也跟着动">
+      <option name="closed" value="true" />
+      <created>1731758725375</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731758725375</updated>
+    </task>
+    <task id="LOCAL-00012" summary="看代码">
+      <option name="closed" value="true" />
+      <created>1731758830869</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731758830869</updated>
+    </task>
+    <task id="LOCAL-00013" summary="看代码">
+      <option name="closed" value="true" />
+      <created>1731758960965</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731758960965</updated>
+    </task>
+    <task id="LOCAL-00014" summary="实现任务但是不能走直线">
+      <option name="closed" value="true" />
+      <created>1731768224607</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731768224607</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +294,9 @@
     <MESSAGE value="加了遥控器" />
     <MESSAGE value="解决了雷达数据问题，低通滤波器受前一次影响太大，基本不更新，pid位置环的近距离参数效果很好" />
     <MESSAGE value="我们之前那个解算把他们的y当成了我们的x去解算的，已修改，可以走斜线了" />
-    <option name="LAST_COMMIT_MESSAGE" value="我们之前那个解算把他们的y当成了我们的x去解算的，已修改，可以走斜线了" />
+    <MESSAGE value="我们之前那个解算把他们的y当成了我们的x去解算的，已修改，可以走斜线了，但是加上角度环会影响到x，y也跟着动" />
+    <MESSAGE value="看代码" />
+    <MESSAGE value="实现任务但是不能走直线" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现任务但是不能走直线" />
   </component>
 </project>

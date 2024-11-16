@@ -14,8 +14,12 @@ float theta=0;
 void Kinematic_solution(float v_x,float v_y,float w){
     // theta=0;
     // 第一步：将速度从全局坐标系转换到机器人的局部坐标系
-    double v_y_robot = v_x * sin(theta) + v_y * cos(theta);
     double v_x_robot = v_x * cos(theta) - v_y * sin(theta);
+    double v_y_robot = v_x * sin(theta) + v_y * cos(theta);
+
+    // double v_x_robot = v_x * cos(theta) + v_y * sin(theta);
+    // double v_y_robot =-v_x * sin(theta) + v_y * cos(theta);
+
     // float theta=0;
     Target_Speed_1=(w*R_Car+(-v_x_robot*cos(pi/4.0)-v_y_robot*cos(pi/4.0)))/(2*pi/60.0)/R_Wheel;//rpm化为度/s
     Target_Speed_2=(w*R_Car+(v_x_robot*cos(pi/4.0)-v_y_robot*cos(pi/4.0)))/(2*pi/60.0)/R_Wheel;
