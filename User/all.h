@@ -96,7 +96,7 @@ extern DJI_motor gm2006_1;
 extern DJI_motor gm2006_2;
 extern DJI_motor gm2006_3;
 extern DJI_motor gm2006_4;
-#define pi 3.1416
+#define pi 3.1415926
 #define r 1234//待定
 #define LOCATER_DATA_SIZE 14
 #define RADAR_DATA_SIZE 14

@@ -146,6 +146,7 @@ void USART_PID_Adjust(uint8_t Motor_n)
         {
             Target_point.x = data_Get;
             Target_point.y = data_Get;
+            Target_point.angle+=45;
             // Target_point.angle = 50;
 
             // Target_Speed_1 = data_Get;

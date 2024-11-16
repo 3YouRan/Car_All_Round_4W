@@ -60,6 +60,7 @@ bool Pos_flag=1;//?????¦Ë?????
 
 int time2=0;
 int time3=0;
+int time4=0;
 float MIN_Pos_Increment=0.5;
 float MIN_Angle_Increment=0.2;
 
@@ -78,6 +79,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         time1++;
         time2++;
         time3++;
+        time4++;
         if((Target_point.angle - Target_point_actual.angle) > MIN_Angle_Increment){
             Target_point_actual.angle+=MIN_Angle_Increment;
         } else if((Target_point.angle - Target_point_actual.angle) < -MIN_Angle_Increment){
@@ -137,6 +139,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         if(time2==10000){
 
             pid_spe_flag=true;
+        }
+        if(time4==10000)
+        {
+           time4=0;
+            Target_point.angle+=10;
         }
     }
     /* USER CODE END Callback 1 */

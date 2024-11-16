@@ -290,10 +290,10 @@ void pid_task(void *argument)
      CurrentTime_PID=xTaskGetTickCount();
 
      //速度�?
-     current_1=FW_PID_Realize(&pid_speed, Target_Speed_1, gm2006_1.rotor_speed / 36.0);
-     current_2=FW_PID_Realize(&pid_speed, Target_Speed_2, gm2006_2.rotor_speed / 36.0);
-     current_3=FW_PID_Realize(&pid_speed, Target_Speed_3, gm2006_3.rotor_speed / 36.0);
-     current_4=FW_PID_Realize(&pid_speed, Target_Speed_4, gm2006_4.rotor_speed / 36.0);
+     current_1=FW_PID_Realize(&pid_speed, Target_Speed_actual_1, gm2006_1.rotor_speed / 36.0);
+     current_2=FW_PID_Realize(&pid_speed, Target_Speed_actual_2, gm2006_2.rotor_speed / 36.0);
+     current_3=FW_PID_Realize(&pid_speed, Target_Speed_actual_3, gm2006_3.rotor_speed / 36.0);
+     current_4=FW_PID_Realize(&pid_speed, Target_Speed_actual_4, gm2006_4.rotor_speed / 36.0);
      //角度�?
 
      //发�?�电机can控制信号
@@ -327,7 +327,7 @@ void uart_tx_task(void *argument)
 //     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
 
     // printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_Speed_1,gm2006_1.rotor_speed / 36.0);
-     printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_point.y,radar_data.pos_y,Target_point.angle,theta,radar_data.total_angle);
+     printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_point.y,radar_data.pos_y,Target_point.angle,radar_data.total_angle,theta);
 // printf("%.2f,%.2f\n\r",Target_Speed_1,gm2006_1.rotor_speed / 36.0);
 
      // printf("gasgjh:%d,%.2f,%.2f\n\r",1,Target_point.angle,radar_data.total_angle);

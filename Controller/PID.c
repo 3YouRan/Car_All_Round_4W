@@ -76,9 +76,9 @@ void PID_Init(PID *pid_speed,PID *pid_speed_3,PID *pid_position,PID *PID_POINT,P
     PID_Angle_POS->maxOutput = 600;
     PID_Angle_POS->lastErr = 0;
     PID_Angle_POS->output = 0;
-    PID_Angle_POS->kp = 0.0716;//0.08418
+    PID_Angle_POS->kp = 0.0316;//0.08418
     PID_Angle_POS->ki = 0;
-    PID_Angle_POS->kd = 0;
+    PID_Angle_POS->kd = 2.5;
     PID_Angle_POS->deadZone = 0.5;
 
 
