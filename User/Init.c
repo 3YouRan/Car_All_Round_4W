@@ -20,7 +20,7 @@ void my_Init() {
     set_runpoint_target(0,0,0);
     // HAL_Delay(200);
 
-    PID_Init(&pid_speed,&pid_position,&PID_POINT,&PID_Angle_POS,&PID_Angle_SPD,&PID_POINT_x,&PID_POINT_y);//PID参数初始化
+    PID_Init(&pid_speed,&pid_speed_3,&pid_position,&PID_POINT,&PID_Angle_POS,&PID_Angle_SPD,&PID_POINT_x,&PID_POINT_y);//PID参数初始化
 
 
     HAL_TIM_Base_Start_IT(&htim3);//定时器3初始化

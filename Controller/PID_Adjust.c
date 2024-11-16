@@ -131,21 +131,21 @@ void USART_PID_Adjust(uint8_t Motor_n)
     if(Motor_n == 1)//左边电机
     {
         if(DataBuff[0]=='P' && DataBuff[1]=='1') // 位置环P
-            PID_POINT_y.kp = data_Get;
-        else if(DataBuff[0]=='I' && DataBuff[1]=='1') // 位置环I
-            PID_POINT_y.ki = data_Get;
-        else if(DataBuff[0]=='D' && DataBuff[1]=='1') // 位置环D
-            PID_POINT_y.kd = data_Get;
-        else if(DataBuff[0]=='P' && DataBuff[1]=='2') // 速度环P
             PID_Angle_POS.kp = data_Get;
-        else if(DataBuff[0]=='I' && DataBuff[1]=='2') // 速度环I
-            PID_Angle_POS.ki= data_Get;
-        else if(DataBuff[0]=='D' && DataBuff[1]=='2') // 速度环D
+        else if(DataBuff[0]=='I' && DataBuff[1]=='1') // 位置环I
+            PID_Angle_POS.ki = data_Get;
+        else if(DataBuff[0]=='D' && DataBuff[1]=='1') // 位置环D
             PID_Angle_POS.kd = data_Get;
+        else if(DataBuff[0]=='P' && DataBuff[1]=='2') // 速度环P
+            pid_speed_3.kp = data_Get;
+        else if(DataBuff[0]=='I' && DataBuff[1]=='2') // 速度环I
+            pid_speed_3.ki= data_Get;
+        else if(DataBuff[0]=='D' && DataBuff[1]=='2') // 速度环D
+            pid_speed_3.kd = data_Get;
         else if((DataBuff[0]=='S' && DataBuff[1]=='p') && DataBuff[2]=='e') //目标速度
         {
             Target_point.x = data_Get;
-            Target_point.y=data_Get;
+            Target_point.y = data_Get;
             // Target_point.angle = 50;
 
             // Target_Speed_1 = data_Get;

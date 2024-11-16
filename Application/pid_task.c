@@ -9,12 +9,15 @@ float current_3;
 float current_4;
 #define R_Car 0.142
 #define R_Wheel 0.041
+float theta=0;
+
 void Kinematic_solution(float v_x,float v_y,float w){
-    float theta= transfer(radar_data.total_angle,0,360,0,2*pi);
-    Target_Speed_1=(w*R_Car+(v_x*sin(-pi/4.0)+v_y*sin(-pi/4.0)))/(2*pi/60.0)/R_Wheel;//rpm化为度/s
-    Target_Speed_2=(w*R_Car+(v_x*sin(pi/4.0)+v_y*sin(-pi/4.0)))/(2*pi/60.0)/R_Wheel;
-    Target_Speed_3=(w*R_Car+(v_x*sin(pi/4.0)+v_y*sin(pi/4.0)))/(2*pi/60.0)/R_Wheel;
-    Target_Speed_4=(w*R_Car+(v_x*sin(-pi/4.0)+v_y*sin(pi/4.0)))/(2*pi/60.0)/R_Wheel;
+    theta=0;
+    // float theta=0;
+    Target_Speed_1=(w*R_Car+(-v_x*cos(pi/4.0-theta)-v_y*cos(pi/4.0-theta)))/(2*pi/60.0)/R_Wheel;//rpm化为度/s
+    Target_Speed_2=(w*R_Car+(v_x*cos(pi/4.0-theta)-v_y*cos(pi/4.0-theta)))/(2*pi/60.0)/R_Wheel;
+    Target_Speed_3=(w*R_Car+(v_x*cos(pi/4.0-theta)+v_y*cos(pi/4.0-theta)))/(2*pi/60.0)/R_Wheel;
+    Target_Speed_4=(w*R_Car+(-v_x*cos(pi/4.0-theta)+v_y*cos(pi/4.0-theta)))/(2*pi/60.0)/R_Wheel;
 }
 // void pid_task(void *arg){
 //

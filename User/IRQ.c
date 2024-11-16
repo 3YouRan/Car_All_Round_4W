@@ -61,7 +61,7 @@ bool Pos_flag=1;//?????¦Ë?????
 int time2=0;
 int time3=0;
 float MIN_Pos_Increment=0.5;
-float MIN_Angle_Increment=2;
+float MIN_Angle_Increment=0.2;
 
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -78,7 +78,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         time1++;
         time2++;
         time3++;
-        if(time3==10){
+        if((Target_point.angle - Target_point_actual.angle) > MIN_Angle_Increment){
+            Target_point_actual.angle+=MIN_Angle_Increment;
+        } else if((Target_point.angle - Target_point_actual.angle) < -MIN_Angle_Increment){
+            Target_point_actual.angle-=MIN_Angle_Increment;
+        }
+        if(time3==2){
             time3=0;
             if((Target_point.x - Target_point_actual.x) > MIN_Pos_Increment){
                 Target_point_actual.x+=MIN_Pos_Increment;
@@ -90,11 +95,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
             } else if((Target_point.y - Target_point_actual.y) < -MIN_Pos_Increment){
                 Target_point_actual.y-=MIN_Pos_Increment;
             }
-            if((Target_point.angle - Target_point_actual.angle) > MIN_Angle_Increment){
-                Target_point_actual.angle+=MIN_Angle_Increment;
-            } else if((Target_point.angle - Target_point_actual.angle) < -MIN_Angle_Increment){
-                Target_point_actual.angle-=MIN_Angle_Increment;
-            }
+
 
 
         }
@@ -154,7 +155,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
         FDCAN_RxHeaderTypeDef rx_header;
         uint8_t rx_data[8];
         HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rx_header, rx_data); //receive can data
-//         printf("FDCAN_FIFO0_get:id=%x,data=%x\r\n",rx_header.Identifier,rx_data[0]);
+         // printf("FDCAN_FIFO0_get:id=%x,data=%x\r\n",rx_header.Identifier,rx_data[0]);
         switch(rx_header.Identifier){
             case 0x201:{
                 gm2006_1.rotor_angle    = ((rx_data[0] << 8) | rx_data[1]);

@@ -327,7 +327,7 @@ void uart_tx_task(void *argument)
 //     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
 
     // printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_Speed_1,gm2006_1.rotor_speed / 36.0);
-     printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_point.y,radar_data.pos_y,Target_point.angle,radar_data.total_angle);
+     printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_point.y,radar_data.pos_y,Target_point.angle,theta,radar_data.total_angle);
 // printf("%.2f,%.2f\n\r",Target_Speed_1,gm2006_1.rotor_speed / 36.0);
 
      // printf("gasgjh:%d,%.2f,%.2f\n\r",1,Target_point.angle,radar_data.total_angle);

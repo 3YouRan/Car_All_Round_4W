@@ -114,6 +114,7 @@ extern PID PID_POINT_x;
 extern PID PID_POINT_y;
 extern PID PID_Angle_POS;
 extern PID PID_Angle_SPD;
+extern PID pid_speed_3;
 extern float dis;
 extern float v;
 extern locater_def locater;
@@ -137,6 +138,8 @@ extern LowPassFilter filter_x;
 extern LowPassFilter filter_y;
 extern LowPassFilter filter_angle;
 
+
+extern float theta;
 
 extern bool pid_spe_flag ;
 

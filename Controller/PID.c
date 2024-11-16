@@ -7,6 +7,7 @@
 
 PID pid_position;
 PID pid_speed;
+PID pid_speed_3;
 PID pid_current;
 
 PID PID_POINT;
@@ -20,7 +21,7 @@ PID PID_Angle_SPD;
  * 输入：无
  * 返回：无
  * *******************************/
-void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS,PID *PID_Angle_SPD,PID *PID_POINT_x,PID *PID_POINT_y)//PID参数初始化
+void PID_Init(PID *pid_speed,PID *pid_speed_3,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS,PID *PID_Angle_SPD,PID *PID_POINT_x,PID *PID_POINT_y)//PID参数初始化
 {
     pid_speed->err = 0;
     pid_speed->integral = 0;
@@ -28,10 +29,22 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     pid_speed->maxOutput=16000;
     pid_speed->lastErr = 0;
     pid_speed->output = 0;
-    pid_speed->kp = 100;// 50
+    pid_speed->kp = 125;// 50
     pid_speed->ki = 0.063;//0.05
     pid_speed->kd = 0;//28.81
     pid_speed->deadZone = 0.05;
+
+
+    pid_speed_3->err = 0;
+    pid_speed_3->integral = 0;
+    pid_speed_3->maxIntegral = 1000;
+    pid_speed_3->maxOutput=16000;
+    pid_speed_3->lastErr = 0;
+    pid_speed_3->output = 0;
+    pid_speed_3->kp = 200;// 50
+    pid_speed_3->ki = 0.063;//0.05
+    pid_speed_3->kd = 0;//28.81
+    pid_speed_3->deadZone = 0.05;
 
     pid_position->err = 0;
     pid_position->integral = 0;
@@ -63,7 +76,7 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_Angle_POS->maxOutput = 600;
     PID_Angle_POS->lastErr = 0;
     PID_Angle_POS->output = 0;
-    PID_Angle_POS->kp = 0.09898;//0.08418
+    PID_Angle_POS->kp = 0.0716;//0.08418
     PID_Angle_POS->ki = 0;
     PID_Angle_POS->kd = 0;
     PID_Angle_POS->deadZone = 0.5;
@@ -84,10 +97,10 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_x->err = 0;
     PID_POINT_x->integral = 0;
     PID_POINT_x->maxIntegral = 600;
-    PID_POINT_x->maxOutput = 30;
+    PID_POINT_x->maxOutput = 100;
     PID_POINT_x->lastErr = 0;
     PID_POINT_x->output = 0;
-    PID_POINT_x->kp = 0.0048;//0.009
+    PID_POINT_x->kp = 0.0028;//0.009
     PID_POINT_x->ki = 0.00000;
     PID_POINT_x->kd = 0;//0.5
     PID_POINT_x->deadZone = 1;
@@ -96,10 +109,10 @@ void PID_Init(PID *pid_speed,PID *pid_position,PID *PID_POINT,PID *PID_Angle_POS
     PID_POINT_y->err = 0;
     PID_POINT_y->integral = 0;
     PID_POINT_y->maxIntegral = 600;
-    PID_POINT_y->maxOutput = 30;
+    PID_POINT_y->maxOutput = 100;
     PID_POINT_y->lastErr = 0;
     PID_POINT_y->output = 0;
-    PID_POINT_y->kp = 0.0048;//使用雷达调的结果
+    PID_POINT_y->kp = 0.0025;//使用雷达调的结果
     PID_POINT_y->ki = 0.00000;
     PID_POINT_y->kd = 0;
     PID_POINT_y->deadZone = 1;
