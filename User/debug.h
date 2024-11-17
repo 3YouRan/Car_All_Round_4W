@@ -7,6 +7,7 @@
 void Set_Target_UartInit();
 void Set_Target_UartIrqHandler(UART_HandleTypeDef *huart);
 void Set_Target_UartIdleCallback(UART_HandleTypeDef *huart);
+void Set_Target_UartIdleCallback_point_straight(UART_HandleTypeDef *huart);
 
 
 void Set_Target_UartInit_auto();

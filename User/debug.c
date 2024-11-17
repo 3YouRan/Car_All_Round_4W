@@ -49,7 +49,7 @@ char *pEnd;
 
      va_end(args);
 
-     HAL_UART_Transmit_DMA(&huart4, (uint8_t*)send_buf, length);
+     HAL_UART_Transmit_DMA(&huart2, (uint8_t*)send_buf, length);
  }
 
 
@@ -73,11 +73,12 @@ void Set_Target_UartIrqHandler(UART_HandleTypeDef *huart)
         if(RESET != __HAL_UART_GET_FLAG(huart, UART_FLAG_IDLE))//判断是否是空闲中断
         {
             __HAL_UART_CLEAR_IDLEFLAG(huart);//清楚空闲中断标志，防止会一直不断进入中断
-            Set_Target_UartIdleCallback(huart);//调用中断处理函数
+            // Set_Target_UartIdleCallback(huart);//调用中断处理函数
+            Set_Target_UartIdleCallback_point_straight(huart);//调用中断处理函数
         }
     }
 
-    if(huart->Instance == huart5.Instance)//判断是否是串口1
+    if(huart->Instance == huart5.Instance)//判断是否是串口5
     {
 //        printf("uart\n\r");
         if(RESET != __HAL_UART_GET_FLAG(huart, UART_FLAG_IDLE))//判断是否是空闲中断
@@ -114,6 +115,35 @@ void Set_Target_UartIdleCallback(UART_HandleTypeDef *huart)//注意一个问题�
 
 }
 
+
+
+uint8_t data_length_point_straight  =0;
+void Set_Target_UartIdleCallback_point_straight(UART_HandleTypeDef *huart)
+{
+    HAL_UART_DMAStop(huart);//停止本次DMA传输
+
+    //计算接收到的数据长度，接收到的数据长度等于数组的最大存储长度减去DMA空闲的数据区长度
+    uint8_t data_length  = DEBUG_RV_MXSIZE - __HAL_DMA_GET_COUNTER(huart->hdmarx);
+
+
+    if(debugRvAll[0] == 'A')
+    {
+        // usart_printf("123\n\r");
+        memcpy(debugRvData_radar_x ,&debugRvAll[1],4);//
+        memcpy(debugRvData_radar_y ,&debugRvAll[5],4);//
+        memcpy(debugRvData_radar_angle ,&debugRvAll[9],4);//
+    }
+
+        Target_point.x= strtof(debugRvData_radar_x,&pEnd);
+        Target_point.y= strtof(debugRvData_radar_y,&pEnd);
+        Target_point.angle= strtof(debugRvData_radar_angle,&pEnd);
+
+    data_length = 0;
+    memset(debugRvAll,0,data_length); //清零接收缓冲区
+    HAL_UART_Receive_DMA(huart, (uint8_t*)&debugRvAll, DEBUG_RV_MXSIZE);//循环中开启串口的DMA接收
+
+
+}
 
 uint8_t data_length_radar  =0;
 bool radar_mender_flag = false;

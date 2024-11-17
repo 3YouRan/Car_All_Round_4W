@@ -140,11 +140,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
             pid_spe_flag=true;
         }
-        if(time4==10000)
-        {
-           time4=0;
-            Target_point.angle+=10;
-        }
+        // if(time4==10000)
+        // {
+        //    time4=0;
+        //     Target_point.angle+=10;
+        // }
     }
     /* USER CODE END Callback 1 */
 }
