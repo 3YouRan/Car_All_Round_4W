@@ -140,6 +140,8 @@
       <workItem from="1731724218629" duration="26218000" />
       <workItem from="1731840562064" duration="5238000" />
       <workItem from="1732091121533" duration="11000" />
+      <workItem from="1732111564471" duration="785000" />
+      <workItem from="1732190735246" duration="8062000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />
