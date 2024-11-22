@@ -162,7 +162,7 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
         FDCAN_RxHeaderTypeDef rx_header;
         uint8_t rx_data[8];
         HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rx_header, rx_data); //receive can data
-         // printf("FDCAN_FIFO0_get:id=%x,data=%x\r\n",rx_header.Identifier,rx_data[0]);
+        //printf("FDCAN_FIFO0_get:id=%x,data=%x\r\n",rx_header.Identifier,rx_data[0]);
         switch(rx_header.Identifier){
             case 0x201:{
                 gm2006_1.rotor_angle    = ((rx_data[0] << 8) | rx_data[1]);
