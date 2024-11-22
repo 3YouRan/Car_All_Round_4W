@@ -20,7 +20,24 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="793ee265-cac1-4c37-a155-66f128bd98d3" name="更改" comment="使用雷达进行的初步调试" />
+    <list default="true" id="793ee265-cac1-4c37-a155-66f128bd98d3" name="更改" comment="使用雷达进行的初步调试">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/OCD_RC_All_Round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/OCD_RC_All_Round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/pid_task.c" beforeDir="false" afterPath="$PROJECT_DIR$/Application/pid_task.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/PID.c" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/PID.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/app_freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/app_freertos.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/IRQ.c" beforeDir="false" afterPath="$PROJECT_DIR$/User/IRQ.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User/robo.c" beforeDir="false" afterPath="$PROJECT_DIR$/User/robo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/RC_All_Round.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/RC_All_Round.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/RC_All_Round.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/RC_All_Round.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/RC_All_Round.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/RC_All_Round.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/RC_All_Round.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/RC_All_Round.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,6 +112,11 @@
     </key>
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.OCD RC_All_Round">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RC_All_Round.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RC_All_Round" TARGET_NAME="RC_All_Round.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RC_All_Round" RUN_TARGET_NAME="RC_All_Round.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -142,6 +164,7 @@
       <workItem from="1732091121533" duration="11000" />
       <workItem from="1732111564471" duration="785000" />
       <workItem from="1732190735246" duration="8062000" />
+      <workItem from="1732276669636" duration="4410000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />
