@@ -20,7 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="793ee265-cac1-4c37-a155-66f128bd98d3" name="更改" comment="使用雷达进行的初步调试">
+    <list default="true" id="793ee265-cac1-4c37-a155-66f128bd98d3" name="更改" comment="解算修正，走点任务基本完成，目前的问题就是边转边走超调量巨大">
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/OCD_RC_All_Round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/OCD_RC_All_Round.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/pid_task.c" beforeDir="false" afterPath="$PROJECT_DIR$/Application/pid_task.c" afterDir="false" />
@@ -164,7 +164,7 @@
       <workItem from="1732091121533" duration="11000" />
       <workItem from="1732111564471" duration="785000" />
       <workItem from="1732190735246" duration="8062000" />
-      <workItem from="1732276669636" duration="4410000" />
+      <workItem from="1732276669636" duration="5062000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />
@@ -278,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731768224607</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="解算修正，走点任务基本完成，目前的问题就是边转边走超调量巨大">
+      <option name="closed" value="true" />
+      <created>1732282193104</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732282193104</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +332,7 @@
     <MESSAGE value="我们之前那个解算把他们的y当成了我们的x去解算的，已修改，可以走斜线了，但是加上角度环会影响到x，y也跟着动" />
     <MESSAGE value="看代码" />
     <MESSAGE value="实现任务但是不能走直线" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现任务但是不能走直线" />
+    <MESSAGE value="解算修正，走点任务基本完成，目前的问题就是边转边走超调量巨大" />
+    <option name="LAST_COMMIT_MESSAGE" value="解算修正，走点任务基本完成，目前的问题就是边转边走超调量巨大" />
   </component>
 </project>
