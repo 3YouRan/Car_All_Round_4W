@@ -34,9 +34,9 @@ void RunPoint_straight(pointStruct targetPoint)
     //计算速度pid输
     if(pid_spe_flag ==true) {
 //         omega = 3;
-        omega = FW_PID_Realize_without_brake(&PID_Angle_POS,Target_point_actual.angle,radar_data.total_angle);//位置环
-         v_x = FW_PID_Realize_without_brake(&PID_POINT_x,Target_point_actual.x, radar_data.pos_x);
-         v_y = FW_PID_Realize_without_brake(&PID_POINT_y,Target_point_actual.y,radar_data.pos_y);
+        omega = FW_PID_Realize_without_brake(&PID_Angle_POS,Target_point.angle,radar_data.total_angle);//位置环
+         v_x = FW_PID_Realize_without_brake(&PID_POINT_x,Target_point.x, radar_data.pos_x);
+         v_y = FW_PID_Realize_without_brake(&PID_POINT_y,Target_point.y,radar_data.pos_y);
     }
 // v_x = 0;
 //    v_y = 0;

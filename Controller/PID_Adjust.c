@@ -144,9 +144,9 @@ void USART_PID_Adjust(uint8_t Motor_n)
             pid_speed_3.kd = data_Get;
         else if((DataBuff[0]=='S' && DataBuff[1]=='p') && DataBuff[2]=='e') //目标速度
         {
-            Target_point.x = data_Get;
-            Target_point.y = data_Get;
-            Target_point.angle+=45;
+            // Target_point.x = data_Get;
+            // Target_point.y = data_Get;
+            // Target_point.angle+=45;
             // Target_point.angle = 50
             // Target_Speed_1 = data_Get;
             // Target_Speed_2 = data_Get;
@@ -157,8 +157,8 @@ void USART_PID_Adjust(uint8_t Motor_n)
 //             = Target_Position_1;
             // Target_point.x = data_Get;
 
-            Target_point.angle = data_Get;
-            // Target_point.y=data_Get;
+            // Target_point.angle = data_Get;
+            Target_point.angle=data_Get;
 
             // Target_point.y = data_Get;
 

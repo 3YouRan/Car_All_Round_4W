@@ -202,71 +202,71 @@
 			[
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Core/Inc"
+					"path" : "D:/Car_All_Round_4W/Core/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc"
+					"path" : "D:/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
+					"path" : "D:/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Device/ST/STM32G4xx/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Device/ST/STM32G4xx/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Core/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Core/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/DSP/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/DSP/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/PIDC/Inc"
+					"path" : "D:/Car_All_Round_4W/PIDC/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/matlab/simulink/include"
+					"path" : "D:/Car_All_Round_4W/matlab/simulink/include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/User"
+					"path" : "D:/Car_All_Round_4W/User"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/BSP"
+					"path" : "D:/Car_All_Round_4W/BSP"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Application"
+					"path" : "D:/Car_All_Round_4W/Application"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Controller"
+					"path" : "D:/Car_All_Round_4W/Controller"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/PIDC_stm32"
+					"path" : "D:/Car_All_Round_4W/PIDC_stm32"
 				}
 			],
 			"language" : "C",
@@ -449,71 +449,71 @@
 			[
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Core/Inc"
+					"path" : "D:/Car_All_Round_4W/Core/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc"
+					"path" : "D:/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
+					"path" : "D:/Car_All_Round_4W/Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Device/ST/STM32G4xx/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Device/ST/STM32G4xx/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+					"path" : "D:/Car_All_Round_4W/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/Core/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/Core/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Drivers/CMSIS/DSP/Include"
+					"path" : "D:/Car_All_Round_4W/Drivers/CMSIS/DSP/Include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/PIDC/Inc"
+					"path" : "D:/Car_All_Round_4W/PIDC/Inc"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/matlab/simulink/include"
+					"path" : "D:/Car_All_Round_4W/matlab/simulink/include"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/User"
+					"path" : "D:/Car_All_Round_4W/User"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/BSP"
+					"path" : "D:/Car_All_Round_4W/BSP"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Application"
+					"path" : "D:/Car_All_Round_4W/Application"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/Controller"
+					"path" : "D:/Car_All_Round_4W/Controller"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "D:/STM32/proj/Car_All_Round_4W/PIDC_stm32"
+					"path" : "D:/Car_All_Round_4W/PIDC_stm32"
 				}
 			],
 			"language" : "ASM",
@@ -548,7 +548,7 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=D:/STM32/proj/Car_All_Round_4W/cmake-build-debug/RC_All_Round.map",
+				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=D:/Car_All_Round_4W/cmake-build-debug/RC_All_Round.map",
 				"role" : "flags"
 			},
 			{
@@ -573,7 +573,7 @@
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "D:/STM32/proj/Car_All_Round_4W/STM32G474VETX_FLASH.ld",
+				"fragment" : "D:/Car_All_Round_4W/STM32G474VETX_FLASH.ld",
 				"role" : "flags"
 			}
 		],

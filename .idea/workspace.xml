@@ -112,12 +112,12 @@
     </key>
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.OCD RC_All_Round">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="RC_All_Round.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RC_All_Round" TARGET_NAME="RC_All_Round.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RC_All_Round" RUN_TARGET_NAME="RC_All_Round.elf">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RC_All_Round.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RC_All_Round" TARGET_NAME="RC_All_Round.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RC_All_Round" RUN_TARGET_NAME="RC_All_Round.elf">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -165,6 +165,7 @@
       <workItem from="1732111564471" duration="785000" />
       <workItem from="1732190735246" duration="8062000" />
       <workItem from="1732276669636" duration="5062000" />
+      <workItem from="1732326567835" duration="5534000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />
@@ -333,6 +334,7 @@
     <MESSAGE value="看代码" />
     <MESSAGE value="实现任务但是不能走直线" />
     <MESSAGE value="解算修正，走点任务基本完成，目前的问题就是边转边走超调量巨大" />
-    <option name="LAST_COMMIT_MESSAGE" value="解算修正，走点任务基本完成，目前的问题就是边转边走超调量巨大" />
+    <MESSAGE value="走点任务完成，去掉外环斜坡函数，后半段响应慢的问题待解决" />
+    <option name="LAST_COMMIT_MESSAGE" value="走点任务完成，去掉外环斜坡函数，后半段响应慢的问题待解决" />
   </component>
 </project>
