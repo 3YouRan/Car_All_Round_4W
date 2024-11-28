@@ -112,12 +112,12 @@
     </key>
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.OCD RC_All_Round">
-    <configuration name="RC_All_Round.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RC_All_Round" TARGET_NAME="RC_All_Round.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RC_All_Round" RUN_TARGET_NAME="RC_All_Round.elf">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="RC_All_Round.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RC_All_Round" TARGET_NAME="RC_All_Round.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RC_All_Round" RUN_TARGET_NAME="RC_All_Round.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -165,7 +165,8 @@
       <workItem from="1732111564471" duration="785000" />
       <workItem from="1732190735246" duration="8062000" />
       <workItem from="1732276669636" duration="5062000" />
-      <workItem from="1732326567835" duration="5534000" />
+      <workItem from="1732326567835" duration="10565000" />
+      <workItem from="1732798994079" duration="361000" />
     </task>
     <task id="LOCAL-00001" summary="完成码盘，陀螺仪的数据接收处理和使用调试，完成雷达的数据接收与处理，直线跑点和与视觉通信还需调参">
       <option name="closed" value="true" />
@@ -287,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732282193104</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="走点任务完成，去掉外环斜坡函数，后半段响应慢的问题待解决">
+      <option name="closed" value="true" />
+      <created>1732332834992</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732332834992</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

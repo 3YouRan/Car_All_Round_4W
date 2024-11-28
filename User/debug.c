@@ -134,9 +134,12 @@ void Set_Target_UartIdleCallback_point_straight(UART_HandleTypeDef *huart)
         memcpy(debugRvData_radar_angle ,&debugRvAll[9],4);//
     }
 
+    //直线跑点设置目标
         Target_point.x= strtof(debugRvData_radar_x,&pEnd);
         Target_point.y= strtof(debugRvData_radar_y,&pEnd);
         Target_point.angle= strtof(debugRvData_radar_angle,&pEnd);
+
+
 
     data_length = 0;
     memset(debugRvAll,0,data_length); //清零接收缓冲区

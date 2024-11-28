@@ -48,7 +48,7 @@
 #include "robo.h"
 
 #include "debug.h"
-
+#include "bezier.h"
 #include "NRF24L01.h"
 #include "filter.h"
 //电机1位置和速度
@@ -147,4 +147,8 @@ extern bool radar_mender_flag ;
 
 extern Control_Struct control_data;
 extern uint8_t Speed_PS_Rece_Buf[32]; // 声明全局数组
+extern Point result;
+extern Point controlPoints[4];
+
+
 #endif //RC_WORK1_ALL_H
