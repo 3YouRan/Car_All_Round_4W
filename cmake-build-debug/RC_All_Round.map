@@ -2092,21 +2092,34 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/Init.c.obj
  .data          0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/Init.c.obj
  .bss           0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/Init.c.obj
+ .text          0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .data          0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .text.lerp     0x00000000       0xbc CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .text.deCasteljau
+                0x00000000       0x9c CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .debug_info    0x00000000      0x255 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .debug_abbrev  0x00000000      0x14a CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .debug_loc     0x00000000      0x15c CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .debug_aranges
+                0x00000000       0x28 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .debug_ranges  0x00000000       0x30 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .debug_line    0x00000000      0x128 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .debug_str     0x00000000      0x236 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .comment       0x00000000       0x4a CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .debug_frame   0x00000000       0x98 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
+ .ARM.attributes
+                0x00000000       0x34 CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
  .text          0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
  .data          0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
  .bss           0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .text.lerp     0x00000000       0xbc CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .text.bezier   0x00000000       0xa4 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .debug_info    0x00000000      0x26d CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .debug_abbrev  0x00000000      0x153 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .debug_loc     0x00000000      0x196 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
+ .debug_info    0x00000000       0x87 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
+ .debug_abbrev  0x00000000       0x26 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
  .debug_aranges
-                0x00000000       0x28 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .debug_ranges  0x00000000       0x30 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .debug_line    0x00000000      0x178 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .debug_str     0x00000000      0x233 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
+                0x00000000       0x18 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
+ .debug_line    0x00000000       0x1d CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
+ .debug_str     0x00000000      0x1e0 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
  .comment       0x00000000       0x4a CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
- .debug_frame   0x00000000       0x98 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
  .ARM.attributes
                 0x00000000       0x34 CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
  .text          0x00000000        0x0 CMakeFiles/RC_All_Round.elf.dir/User/debug.c.obj
@@ -2709,6 +2722,7 @@ LOAD CMakeFiles/RC_All_Round.elf.dir/PIDC_stm32/rtGetNaN.c.obj
 LOAD CMakeFiles/RC_All_Round.elf.dir/PIDC_stm32/rt_nonfinite.c.obj
 LOAD CMakeFiles/RC_All_Round.elf.dir/User/IRQ.c.obj
 LOAD CMakeFiles/RC_All_Round.elf.dir/User/Init.c.obj
+LOAD CMakeFiles/RC_All_Round.elf.dir/User/beizer.c.obj
 LOAD CMakeFiles/RC_All_Round.elf.dir/User/bezier.c.obj
 LOAD CMakeFiles/RC_All_Round.elf.dir/User/debug.c.obj
 LOAD CMakeFiles/RC_All_Round.elf.dir/User/filter.c.obj

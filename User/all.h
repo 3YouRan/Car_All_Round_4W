@@ -51,6 +51,8 @@
 
 #include "NRF24L01.h"
 #include "filter.h"
+
+#include "beizer.h"
 //电机1位置和速度
 extern float Target_Speed_1;
 extern float Target_Speed_actual_1;
