@@ -32,7 +32,8 @@ void RunPoint_straight(pointStruct targetPoint)
     //先计算向量长度
     dis = sqrt(err_x * err_x + err_y * err_y);
     //计算速度pid输
-    if(pid_spe_flag ==true) {
+    if(pid_spe_flag ==true)
+        {
 //         omega = 3;
         omega = FW_PID_Realize_without_brake(&PID_Angle_POS,Target_point.angle,radar_data.total_angle);//位置环
          v_x = FW_PID_Realize_without_brake(&PID_POINT_x,Target_point.x, radar_data.pos_x);

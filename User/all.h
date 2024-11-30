@@ -36,7 +36,7 @@
 #include "semphr.h"
 
 #include "pid_task.h"
-
+#include "cmsis_os.h"
 #include "tim.h"
 
 #include "event_groups.h"
@@ -137,6 +137,8 @@ extern int cnt_radar;
 extern LowPassFilter filter_x;
 extern LowPassFilter filter_y;
 extern LowPassFilter filter_angle;
+extern int flag_bezier;
+extern  osThreadId_t SETTARGETTASKHandle;
 
 
 extern float theta;
@@ -149,6 +151,7 @@ extern Control_Struct control_data;
 extern uint8_t Speed_PS_Rece_Buf[32]; // 声明全局数组
 extern Point result;
 extern Point controlPoints[4];
-
+extern Point controlPoints1[2];
+extern double t;
 
 #endif //RC_WORK1_ALL_H

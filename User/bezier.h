@@ -9,5 +9,8 @@ typedef struct {
     float y;
 } Point;
 void BezierCurve(Point *controlPoints, uint32_t numPoints, float t, Point *result);
+Point lerp(Point p1, Point p2, double t);
+Point deCasteljau(Point points[], int n, double t);
+
 
 #endif //BEZIER_H

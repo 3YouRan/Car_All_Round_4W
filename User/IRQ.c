@@ -5,6 +5,7 @@
 #include "all.h"
 #include "debug.h"
 #include "radar.h"
+#include "cmsis_os.h"
 /*
  * @brief UART??????????????
  *
@@ -139,6 +140,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         if(time2==10000){
 
             pid_spe_flag=true;
+            flag_bezier = 1;
+            xTaskResumeFromISR(SETTARGETTASKHandle);
         }
         // if(time4==10000)
         // {

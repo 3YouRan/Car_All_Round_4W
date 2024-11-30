@@ -29,6 +29,7 @@
 #include "data_fusion_task.h"
 #include "NRF24L01.h"
 #include "debug.h"
+#include "set_target.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -38,6 +39,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+double t = 0;
 
 /* USER CODE END PD */
 
@@ -155,8 +157,10 @@ void MX_FREERTOS_Init(void) {
   /* creation of ROBOMOVTASK */
   ROBOMOVTASKHandle = osThreadNew(robo_mov, NULL, &ROBOMOVTASK_attributes);
 
+
   /* creation of SETTARGETTASK */
   SETTARGETTASKHandle = osThreadNew(set_target, NULL, &SETTARGETTASK_attributes);
+  vTaskSuspend(SETTARGETTASKHandle);  // 当前任务挂起
 
   /* creation of PID_Task */
   PID_TaskHandle = osThreadNew(pid_task, NULL, &PID_Task_attributes);
@@ -229,6 +233,8 @@ void data_fusion(void *argument)
 }
 
 /* USER CODE BEGIN Header_robo_mov */
+
+
 /**
 * @brief Function implementing the ROBOMOVTASK thread.
 * @param argument: Not used
@@ -263,10 +269,27 @@ void robo_mov(void *argument)
 void set_target(void *argument)
 {
   /* USER CODE BEGIN set_target */
+  portTickType CurrentTime3;
+
   /* Infinite loop */
   for(;;)
-  {
-      vTaskDelay(100); // 1s delay
+  {    CurrentTime3=xTaskGetTickCount();
+
+    BezierCurve(controlPoints, 4, t, &result);
+    // deCasteljau(controlPoints1,2,t);
+    Target_point.x = result.x;
+    Target_point.y = result.y;
+
+    // usart_printf("%.2f,%.2f,%.2f\n\r",Target_point.x,Target_point.y,t);
+    Target_point.angle = 0;
+
+    t +=0.01;
+    if(t > 1)
+    {
+      vTaskSuspend(SETTARGETTASKHandle);  // 当前任务挂起
+    }
+    vTaskDelayUntil(&CurrentTime3,60);
+
   }
   /* USER CODE END set_target */
 }
@@ -328,7 +351,9 @@ void uart_tx_task(void *argument)
 //     printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",Target_point.x,locater.pos_x,PID_POINT_y.kp,Target_point.y,locater.pos_y,locater.continuousAngle);
 
     // printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_Speed_1,gm2006_1.rotor_speed / 36.0);
-     usart_printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_point.y,radar_data.pos_y,Target_point.angle,radar_data.total_angle,theta);
+
+
+     usart_printf("gasgjh:%d,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n\r",1,Target_point.x,radar_data.pos_x,Target_point.y,radar_data.pos_y,Target_point.angle,radar_data.total_angle);
 // printf("%.2f,%.2f\n\r",Target_Speed_1,gm2006_1.rotor_speed / 36.0);
 
      // printf("gasgjh:%d,%.2f,%.2f\n\r",1,Target_point.angle,radar_data.total_angle);

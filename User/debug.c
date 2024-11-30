@@ -129,9 +129,11 @@ void Set_Target_UartIdleCallback_point_straight(UART_HandleTypeDef *huart)
     if(debugRvAll[0] == 'A')
     {
         // usart_printf("123\n\r");
-        memcpy(debugRvData_radar_x ,&debugRvAll[1],4);//
-        memcpy(debugRvData_radar_y ,&debugRvAll[5],4);//
-        memcpy(debugRvData_radar_angle ,&debugRvAll[9],4);//
+        // memcpy(debugRvData_radar_x ,&debugRvAll[1],4);//
+        // memcpy(debugRvData_radar_y ,&debugRvAll[5],4);//
+        // memcpy(debugRvData_radar_angle ,&debugRvAll[9],4);//
+        xSemaphoreGiveFromISR(g_SemaphoreHandle_For_PID, NULL);
+        // flag_bezier = 1;
     }
 
     //直线跑点设置目标
