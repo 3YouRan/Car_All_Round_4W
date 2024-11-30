@@ -102,7 +102,7 @@ void PID_Init(PID *pid_speed,PID *pid_speed_3,PID *pid_position,PID *PID_POINT,P
     PID_POINT_x->output = 0;
     PID_POINT_x->kp = 0.0028;//0.009
     PID_POINT_x->ki = 0.00000;
-    PID_POINT_x->kd =5;//0.5
+    PID_POINT_x->kd =15;//0.5
     PID_POINT_x->deadZone = 1;
 
 
@@ -114,7 +114,7 @@ void PID_Init(PID *pid_speed,PID *pid_speed_3,PID *pid_position,PID *PID_POINT,P
     PID_POINT_y->output = 0;
     PID_POINT_y->kp = 0.0025;//使用雷达调的结果
     PID_POINT_y->ki = 0.00000;
-    PID_POINT_y->kd = 5;
+    PID_POINT_y->kd = 15;
     PID_POINT_y->deadZone = 1;
 
 }
