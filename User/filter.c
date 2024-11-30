@@ -28,3 +28,27 @@ float filterValue(LowPassFilter* filter, float input) {
 }
 
 
+// ¿¨¶ûÂüÂË²¨Æ÷³õÊ¼»¯
+void Kalman_Init(KalmanFilter* kf, float initState, float init_err_Covariance, float processNoiseCov, float measurementNoiseCov) {
+    kf->state = initState;
+    kf->err_Cov = init_err_Covariance;
+    kf->processNoiseCov = processNoiseCov;
+    kf->measurementNoiseCov = measurementNoiseCov;
+    kf->kalmanGain = 0.0f;
+}
+// ¿¨¶ûÂüÂË²¨Æ÷¸üĞÂ
+float Kalman_Filter_Update(KalmanFilter *kf, float new_measurement){
+    // step1 Ô¤²â×´Ì¬
+    float predicted_state = kf->state;//´ËÊ±Ô¤²â¾ØÕóA=1,ÎŞ¿ØÖÆÊäÈë
+    // step2 ¼ÆËã¹À¼ÆÎó²îĞ­·½²î
+    float predicted_err_Cov = kf->err_Cov + kf->processNoiseCov;
+    // step3 ¼ÆËã¿¨¶ûÂüÔöÒæ ´ËÊ±²âÁ¿¾ØÕóH=1
+    kf->kalmanGain = predicted_err_Cov / (predicted_err_Cov + kf->measurementNoiseCov);
+    // step4 ¸üĞÂ×´Ì¬¹À¼ÆÖµ
+    kf->state = predicted_state + kf->kalmanGain * (new_measurement - predicted_state);
+    // step5 ¸üĞÂÎó²îĞ­·½²î
+    kf->err_Cov=(1-kf->kalmanGain)*predicted_err_Cov;
+    // ·µ»Ø×îÓÅ×´Ì¬¹À¼ÆÖµ
+    return kf->state;
+}
+
